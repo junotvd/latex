@@ -1,0 +1,1 @@
+# LaTeX configuration and templates
