@@ -1,0 +1,84 @@
+% \usepackage[T1]{fontenc}
+% \usepackage{cmbright}
+% \usepackage[main=dutch,provide=*]{babel}
+
+% \usepackage{ragged2e}
+% \usepackage{needspace}
+% \usepackage{xspace}
+%
+% \usepackage{csquotes}
+% \usepackage{parskip}
+% \usepackage{sidenotes}
+% \usepackage{marginnote}
+% \renewcommand*{\raggedleftmarginnote}{}
+
+% \usepackage{tikz}
+% \usepackage{graphicx}
+% \usepackage{float}
+% \usepackage[maxfloats=45]{morefloats}
+% \usepackage{marginfix}
+% \usepackage{booktabs}
+% \usepackage{enumitem}
+% \usepackage{tabularx}
+%
+\usepackage{amsmath, amsfonts, mathtools, amsthm, amssymb}
+% \usepackage{cancel}
+% \usepackage{bm}
+
+% \usepackage{microtype} %load after amsthm
+
+% \usepackage{showframe}
+% \usepackage{layout}
+\usepackage{lipsum}
+\usepackage{xcolor}
+
+\usepackage[
+    sorting = nyt,
+    style = alphabetic
+]{biblatex}
+
+\usepackage[automark]{scrlayer-scrpage}
+\usepackage{scrlayer-notecolumn}
+
+\usepackage{hyperref}
+\hypersetup{%
+    colorlinks = true,
+    linkcolor = blue!60!white,
+    citecolor = blue!60!white,
+    filecolor = blue!60!white,
+    urlcolor = blue!60!white,
+    pdfborder = {0 0 0},
+}
+
+\usepackage[dutch]{cleveref}
+
+
+\renewcommand\geq{\geqslant}
+\renewcommand\leq{\leqslant}
+
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\bld}{bld}
+
+
+\usepackage{xifthen}
+\makeatletter
+\def\@les{}%
+\newcommand{\les}[4]{%
+    \ifthenelse{\isempty{#4}}{%
+        \def\@les{#1 #2}%
+    }{%
+        \def\@les{#1 #2}%
+    }%
+    \subsection*{\@les}
+    \makenote{\small\textsf{\mbox{#3}}}
+}
+\makeatother
+
+\pagestyle{scrheadings}
+\ohead{\MakeUppercase{\textls\headmark}}
+\ihead{}
+\chead{}
+\cfoot[]{}
+
+
+\author{Junot Van Dijck}

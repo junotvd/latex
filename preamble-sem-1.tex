@@ -1,0 +1,99 @@
+% Font and language
+\usepackage[T1]{fontenc}
+\usepackage{cmbright}
+\usepackage[main=dutch,provide=*]{babel}
+\usepackage{csquotes}
+
+
+% margins
+\usepackage{sidenotes}
+% \usepackage{marginnote}
+% \renewcommand*{\raggedleftmarginnote}{}
+\usepackage{marginfix}
+
+% graphical
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{float} % don't know if this is necessary
+\usepackage[maxfloats=45]{morefloats}
+
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{tabularx}
+
+% maths
+\usepackage{amsmath, amsfonts, mathtools, amsthm, amssymb}
+\usepackage{cancel}
+\usepackage{bm}
+
+% Better spacing and alignment
+\usepackage{ragged2e}
+\usepackage{needspace}
+\usepackage{xspace}
+\usepackage{parskip} % whitespace instead of indentation when new paragraph
+\usepackage{microtype} %load after amsthm
+
+% useful when designing document
+% \usepackage{showframe}
+% \usepackage{layout}
+% \usepackage{lipsum}
+
+% bib
+\usepackage[
+    sorting = nyt,
+    style = alphabetic
+]{biblatex}
+
+
+% KOMA-script page styling and column
+\usepackage[automark]{scrlayer-scrpage}
+\usepackage{scrlayer-notecolumn}
+
+
+\pagestyle{scrheadings}
+\ohead{\MakeUppercase{\textls\headmark}}
+\ihead{}
+\chead{}
+\cfoot[]{}
+
+
+% references made clickable
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks = true,
+    linkcolor = blue!60!white,
+    citecolor = blue!60!white,
+    filecolor = blue!60!white,
+    urlcolor = blue!60!white,
+    pdfborder = {0 0 0},
+}
+
+% clever references
+\usepackage[dutch]{cleveref}
+
+
+% redefine commands
+\let\geq\geqslant
+\let\leq\leqslant
+
+\let\epsilon\varepsilon
+\let\phi\varphi
+
+% math operators
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\bld}{bld}
+
+
+% lesson command from Gilles Castel
+\usepackage{xifthen}
+\makeatletter
+\def\@les{}%
+\newcommand{\les}[3]{%
+    \def\@les{#1 #2}
+    \subsection*{\@les}
+    \makenote{\small\textsf{\mbox{#3}}}
+}
+\makeatother
+
+
+\author{Junot Van Dijck}

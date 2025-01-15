@@ -1,0 +1,50 @@
+\documentclass[
+    a4paper,
+    twoside,
+    usegeometry,
+    fontsize=10pt,
+]{scrreprt}
+
+
+\input{../preamble.tex}
+\addbibresource{referenties.bib}
+
+\title{Voorbeeld document}
+\subtitle{KOMA-Script}
+\titlehead{Nederlands}
+
+
+\begin{document}
+    \maketitle
+    \tableofcontents
+
+
+    \chapter*{Intro}
+    \lipsum[1]
+
+
+    \chapter{Functies}
+    \lipsum[2]
+
+    \lipsum[3]
+
+    \section{Injecties, surjecties en bijecties}
+    Zij $X$ en $Y$ verzamelingen en $f: X \to Y$ een functie.
+    Dan is $f$ \textbf{injectief} als
+    \[
+        \forall x_1,x_1 \in X: x_1 \neq x_2 \implies f(x_1) \neq f(x_2).
+    \]
+    De functie$f$ is \textbf{surjectief} als
+    \[
+        \forall y \in Y: \exists x \in X: f(x) = y.
+    \]
+    Tenslotte is $f$ \textbf{bijectief} als en slechts als $f$ zowel injectief als bijectief is.
+
+
+    \chapter*{Appendix}
+    \lipsum[4]
+
+    \nocite{*}
+    \printbibliography
+
+\end{document}

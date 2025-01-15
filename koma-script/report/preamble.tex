@@ -1,0 +1,66 @@
+%https://github.com/fmarotta/kaobook/
+%https://github.com/fmarotta/kaobook/blob/master/kaotheorems.sty
+%https://github.com/gillescastel/masterthesis/blob/master/thesis/preamble.tex
+
+\usepackage{thmtools}
+\usepackage{xifthen}
+\usepackage{ragged2e}
+\usepackage{microtype}
+\usepackage{needspace}
+\usepackage{xspace}
+\usepackage{snotez}
+\usepackage{geometry}
+\geometry{%}
+
+\DeclareDocumentCommand{\pagelayout}{m}{%
+    \ifthenelse{\equal{margin}{#1}}{\marginlayout{marginfloatsetup}{}%
+    \ifthenelse{\equal{normal}{#1}}{\normallayout{marginfloatsetup}{}%
+}
+
+% \newcommand{\marginlayout}{%
+%     \newgeometry{
+%         top=27.4\vscale,
+%         bottom=27.4\vscale,
+%         inner=24.8\hscale,
+%         textwidth=107\hscale,
+%         marginparsep=6.2\hscale,
+%         marginparwidth=47.7\hscale,
+%     }%
+%     \recalchead%
+%     \marinlayouttrue%
+% }
+
+% Tighten up space between displays (e.g., equations) and make symmetric (from tufte-latex)
+\setlength\abovedisplayskip{6pt plus 2pt minus 4pt}%
+\setlength\belowdisplayskip{6pt plus 2pt minus 4pt}%
+\abovedisplayskip 10\p@ \@plus2\p@ \@minus5\p@%
+\abovedisplayshortskip \z@ \@plus3\p@%
+\belowdisplayskip \abovedisplayskip%
+\belowdisplayshortskip 6\p@ \@plus3\p@ \@minus3\p@%
+
+\usepackage{hyperref}
+\hypersetup{%
+    unicode,pdfborder = {0 0 0},
+    %...
+}
+
+% Productivity
+\RequirePackage{pdfpages} % Insert PDF pages
+\RequirePackage{subfiles} % Adopt a modular structure
+\RequirePackage{todonotes} % Add useful notes in the margins
+
+% Verbatim
+%\RequirePackage{fancyvrb} % Customization of verbatim environments
+%\fvset{fontsize=\normalsize} % Change here the font size of all 
+%verbatim \preto{\@verbatim}{\topsep=0pt \partopsep=0pt }
+
+% Algorithms
+\RequirePackage[linesnumbered, ruled, vlined]{algorithm2e} % Algorithms
+
+% Special gliphs
+\RequirePackage{ccicons} % Creative Commons icons
+
+% Index, glossary and nomenclature
+\RequirePackage{imakeidx}
+\RequirePackage[xindy,toc,numberedsection=nameref]{glossaries}
+\RequirePackage[intoc]{nomencl}
