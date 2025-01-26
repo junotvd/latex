@@ -1,0 +1,158 @@
+% Hoofdstuk 6 wordt dit jaar niet behandeld.
+\setcounter{chapter}{6}
+
+
+\chapter{Orderelaties}
+\les{Hoorcollege}{7}{wo 6 nov 2024 14:00}{Orderelaties}
+Wekelijkse taken vanaf week 8 per twee, in \LaTeX.
+
+\begin{definitie}{}{anti-symmetrisch}
+    Een relatie $R$ op een verzameling  $X$ is \textbf{anti-symmetrisch} als
+    \[
+        \forall x,y \in X: \lbrack(x,y) \in R \land (y,x) \in R\rbrack \implies x = y.
+    \]
+    Equivalent hiermee is
+    \[
+        \forall x,y \in X \lbrack(x,y) \in R \land x \neq y\rbrack \implies (y,x) \notin R.
+    \]
+\end{definitie}
+
+\begin{definitie}{}{orderelatie}
+    Een relatie $X$ is een \textbf{orderelatie} op $X$ als ze reflexief, anti-symmetrisch en transitief is.
+    Een orderelatie op $X$ wordt ook wel een \textbf{partiële ordening} op $X$ genoemd.
+\end{definitie}
+
+\begin{voorbeeld}{}{orderelaties}
+    \begin{enumerate}[label = (\alph*)]
+        \item De relatie, $K$, op $\mathbb{R}$ (`kleiner dan of gelijk aan')
+            \[
+                K = \{(x,y) \in \mathbb{R} \times \mathbb{R} \mid x \leq y \}
+            \]
+            is een orderelatie op $\mathbb{R}$.\label{item:orderelatie-kdg}
+        \item Zij $X$ een verzameling, dan is
+            \[
+            \{(A,B) \in P(X)\times P(X) \mid A \subset B \}
+        \] een orderelatie op de machtsverzameling van $X$.\label{item:orderelatie-P}
+        \item De relatie
+            \[
+                D = \{(n,m) \in \mathbb{N}_0 \times \mathbb{N}_0 \mid n\; \text{is een deler van}\; m\}
+            \] is een orderelatie op de strikt positieve gehele getallen.\label{item:orderelatie-gehele-getallen}
+    \end{enumerate}
+\end{voorbeeld}
+
+Je ziet dat bij een orderelatie $R$ dat $(x,y) \in R$ betekent dat $x$ in een of andere zin kleiner dan of gelijk is aan $y$.
+Concreet geven we dit weer met $\leq$ of $\subset$ maar in een algemene context zullen we $\preceq$ gebruiken om een orderelatie aan te duiden.
+
+\begin{definitie}{}{}
+    Een \textbf{partieel geordende verzameling} is een koppel $(X, \preceq)$ bestaande uit een verzameling $X$ en een orderelatie $\preceq$ op $X$.
+\end{definitie}
+Als $(X, \preceq)$ een geordende verzameling is, dan schrijven we meestal $x \preceq y$ als het koppel $(x,y)$ tot de relatie $\preceq$ behoort.
+We gebruiken ook de volgende voor de hand liggende varianten op deze notatie:
+\begin{itemize}
+    \item $x \succeq y$ betekent $y \preceq x$,
+    \item $x \prec y$ betekent $x \preceq$ en $x \neq y$,
+    \item $x \succ y$ betekent $x \succeq$ en $x \neq y$.
+\end{itemize}
+
+\begin{definitie}{}{}
+    Een orderelatie $\preceq$ op $X$ is een \textbf{totale ordening} als
+    \[
+        \forall x,y \in X: x \preceq y \lor y \preceq x.
+    \]
+\end{definitie}
+In een totaal geordende verzameling $(X, \preceq)$ kunnen we elk tweetal elementen $x$ en $y$ met elkaar vergelijken.
+Er geldt telkens precies één van de drie mogelijkheden:
+\[
+    x \prec y, \quad x = y, \quad x \succ y.
+\]
+We bekijken de orderelaties uit \Cref{vb:orderelaties}.
+$K$ uit \cref{item:orderelatie-kdg} is totaal.
+De orderelatie $D$ uit \cref{item:orderelatie-gehele-getallen} is niet totaal.
+Tenslotte is de orderelatie uit \cref{item:orderelatie-P} niet totaal als $X$ uit meer dan één element bestaat.
+\begin{voorbeeld}{}{}
+    \( (P(X), \subset) \) is niet totaal geordend als \( \lvert X\rvert \leq z \).
+\end{voorbeeld}
+
+\begin{definitie}{}{orde-extrema}
+    Zij $A \subset X$.
+    We noemen $a$ een \textbf{grootste element}
+    van $A$ als $a \in A$ en
+    \[
+        \forall x\in A: x \preceq a.
+    \]
+    Analoog kennen we het \textbf{kleinste element} van $A$.
+\end{definitie}
+
+\begin{definitie}{}{orde-sup-inf}
+    Zij $(X, \preceq)$ een geordende verzameling en $A \subset X$.
+    \begin{enumerate}[label = (\alph*)]
+        \item Dan is $b \in X$ een \textbf{bovengrens} van $A$ als
+            \[
+                \forall x \in A: x \preceq b.
+            \]
+            Als $A$ een bovengrens heeft, dan noemen we $A$ \textbf{naar boven begrensd}.
+        \item Verder is $s \in X$ een \textbf{supremum} of \textbf{kleinste bovengrens} van $A$ als $s$ een bovengrens is van $A$ die kleiner is dan elke andere bovengrens van $A$.
+    \end{enumerate}
+    Analoog kennen we \textbf{ondergrens} en \textbf{infimum}.
+\end{definitie}
+\begin{eigenschap}{}{}
+    \begin{enumerate}
+        \item Als \(\sup(A)\) bestaat en \(\sup(X) \in A\), dan \(\sup(A) = \max(A)\).
+        \item Als \(\max(A)\) bestaat, dan \(\max(A) = \sup(A)\).
+    \end{enumerate}
+\end{eigenschap}
+\begin{voorbeeld}{}{}
+    \( (\mathbb{Q}, \leq) \text{ en } (\mathbb{R}, \geq) \) zijn totaal geordende verzamelingen.
+\end{voorbeeld}
+\begin{definitie}{}{}
+    Zij \( (X, \preceq) \) een geordende verzameling.
+    De ordening \(\preceq\) noemen we \textbf{volledig} als
+    \begin{itemize}
+        \item elke niet lege deelverzameling van $X$ die een bovengrens heeft, ook een kleinste bovengrens heeft in $X$.
+        \item elke niet lege deelverzameling van $X$ die een ondergrens heeft, ook een grootste ondergrens heeft in $X$.
+    \end{itemize}
+\end{definitie}
+\begin{opmerking}{}{}
+    \( (\mathbb{Q}, \leq) \) is \underline{niet} volledig.\ \textit{(Volgende week: \((\mathbb{R}, \leq)\) is \underline{wel} volledig.)}
+\end{opmerking}
+\begin{stelling}{}{}
+    Als $A$ een bovengrens heeft, dan is het supremum de kleinste bovengrens, en bestaat er geen kleinere bovengrens.
+\end{stelling}
+\noindent We proberen te bewijzen dat er bij elke bovengrens van $A$ een strikt kleinere bovengrens te vinden valt.
+\begin{bewijs}{}{}
+    Beschouw \(A = \{ x \in \mathbb{Q} \mid x \geq 1 \land x^2 < 2\} \).
+    \begin{itemize}
+        \item \(I \in A\), dus \(A \neq \emptyset\) \checkmark
+        \item \(z\) is een bovengrens \checkmark
+    \end{itemize}
+
+    Zij $s$ een bovengrens van $A$, \(s \in \mathbb{R}\).  Dan \(s\geq 1\) en \(s^2 \neq 2\). Dan zijn er nog twee mogelijkheden:
+    (\textit{Er is geen rationaal getal $r$ met \(r^2=2\).})
+
+    \begin{itemize}
+        \item \(s^2<2\):
+
+            We laten zien dat er een \(n\in\mathbb{N}_0\) met \({(s+\frac{1}{n})}^2<2\) Dan is \(x=s+\frac{1}{n}\) rationaal met \(x^2<2\). Dus \(x\in A \text{ en } x > s\). Dit is een tegenspraak.
+
+            Neem $n$ zo groot dat \(n\in \mathbb{N}_0 > \frac{2s+1}{2-s^2}\). Dan is
+            \[
+                \frac{1}{n} < \frac{2-s^2}{2s+1}
+            \]
+            waardoor
+            \[
+                s + \frac{1}{n} < \frac{s(2s+1)}{2s+1} + \frac{2-s^2}{2s+1} = \frac{s^2+s+2}{2s+1}
+            \]
+            De vraag is nu of \({\left(\frac{s^2+s+2}{2s+1}\right)}^2 < 2\). We weten \(s^2<2\).
+
+        \item \(s^2>2\):
+
+            Zoek $n$ groot genoeg met
+            \[
+                {\left(s-\frac{1}{n}\right)}^2 > 2 \iff\underbrace{\dotsc}_{\textit{klad}} \iff \frac{2s}{s^2-2}<2
+            \]
+    \end{itemize}
+\end{bewijs}
+
+
+\section*{Informatie over de \LaTeX~opdracht}
+Er worden punten afgetrokken voor spelling, zinsbouw, grammatica\ldots Let op wetenschappelijke schrijfstijl. Het moet een `verhaal' zijn. Vermijd pijlen.

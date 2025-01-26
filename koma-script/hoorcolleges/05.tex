@@ -1,0 +1,264 @@
+\chapter{Kardinaliteit}
+\marginpar{\cite[p.68]{cursus}}
+We kunnen de elementen van een verzameling tellen met `één', `twee', `drie'\ldots
+Als we alle elementen zo gehad hebben, is het laatste getal gelijk aan het aantal elementen van die verzameling, dit noemen we de \textbf{kardinaliteit}.
+Het telproces levert een bijectie tussen de gegeven verzameling en de verzameling
+\marginpar{}
+\[
+    \mathbb{E}_n = \{j \in \mathbb{Z} \mid 1 \leq j \leq n\} = \{1,2, \ldots, n\}.
+\]
+We schrijven ook
+\[
+    \mathbb{E}_0 = \emptyset.
+\]
+\begin{definitie}{}{kardinaliteit}
+    Zij $X$ een verzameling en $n \in \mathbb{N}$.
+    Als er een bijectie $f: X \to \mathbb{E}_n$
+    \marginpar{Deze bijectie is niet uniek, tenzij $n= 0$ of $n = 1$.}
+    bestaat,
+    dan zeggen we dat de \textbf{kardinaliteit} van $X$ gelijk is aan
+    \[
+        \lvert X\rvert = \# X = n.
+    \]
+    De kardinaliteit van de lege verzameling is per definitie gelijk aan nul.
+\end{definitie}
+Als $f: X \to \mathbb{E}_n$ een bijectie is, dan bestaat de inverse functie $f^{-1}: \mathbb{E}_n \to X$ en $f^{-1}$ is $n$ als en slechts als er een bijectie is van $\mathbb{E}_n$ naar $X$.
+
+\begin{definitie}{}{eindigheid-verzamelingen}
+    Zij $X$ een verzameling.
+    Als $X$ leeg is, of als er een bijectie is van $X$ naar $\mathbb{E}_n$ voor een zekere $n \in \mathbb{N}_0$, dan noemen we $X$ een \textbf{eindige verzameling}.
+    Anders noemen we $X$ een \textbf{oneindige verzameling} en heeft het een oneindige kardinaliteit die we noteren met $\lvert X\rvert = \infty$.
+\end{definitie}
+
+\begin{definitie}{}{equipotentie}
+    Twee verzamelingen $X$ en $Y$ zijn \textbf{equipotent} als er een bijectie $f: X \to Y$ bestaat.
+\end{definitie}
+
+Bij twee verzamelingen, $X$ en $Y$, die equipotent zijn, kunnen we d.m.v.\ een bijectie $f: X \to Y$ elke $x \in X$ koppelen aan precies één element $y = f(x)$ in $Y$.
+In deze zin zijn twee equipotente verzamelingen even groot.
+
+Een verzameling is \textbf{eindig} als en slechts als ze leeg is of als ze equipotent is met $\mathbb{E}_n$ voor een $n \in \mathbb{N}_0$, dan is $\lvert X\rvert = n$.
+
+Aangezien een equipotentie reflexief, symmetrisch en transitief is, kunnen we het ook zien als een \emph{equivalentierelatie}\marginpar{\Cref{def:relaties-equivalentierelatie}} tussen de verzamelingen.
+
+Er zijn ook oneindige verzamelingen, een belangrijke is de verzameling van de strikt positieve natuurlijke getallen:
+\[
+    \mathbb{N}_0 = \{1,2,3, \ldots\}.
+\]
+
+\begin{definitie}{}{aftelbaarheid}
+    Een verzameling $X$ is \textbf{oneindig aftelbaar} als $X$ equipotent is met $\mathbb{N}_0$.
+    Dan zeggen we dat de kardinaliteit van $X$ gelijk is aan $\aleph_0$ \marginpar{%
+    $\aleph$ is het Hebreeuwse letter `alef' en vertegenwoordigt een groot getal, zoals $\varepsilon$ dat doet voor een klein getal.},
+    we noteren $\lvert X\rvert = \aleph_0$.
+
+    Een verzameling $X$ is \textbf{aftelbaar} als $X$ eindig is of aftelbaar oneindig.
+    Als $X$ niet aftelbaar is, noemen we haar \textbf{overaftelbaar}.
+\end{definitie}
+Als $X$ aftelbaar oneindig is en $f: \mathbb{N}_0 \to X$ is een bijectie, dan kunnen we de elementen van $X$ één voor één opsommen (aftellen) met $x_1 = f(1), x_2 = f(2), \ldots$ 
+Dan is
+\[
+    X = \{x_1, x_2, x_3, \ldots\},
+\] waarin $x_n f(n)$.
+
+
+\section{Overaftelbare verzamelingen}
+\begin{definitie}{}{kardinaliteit-grootheid}
+    Zij $X$ en $Y$ verzamelingen.\marginpar{%
+    Zie dit als een ongelijkheid tussen getallen, hiervoor is \Cref{stel:cantor-bernstein-schroder}.}
+    We zeggen dat de kardinaliteit van $X$ \emph{kleiner dan of gelijk} is aan die van $Y$ en we noteren $\lvert X\rvert \leq \lvert Y\rvert$ als er een injectieve functie $f: X \to Y$ bestaat.
+
+    We zeggen dat de kardinaliteit van $X$ \emph{strikt kleiner} is dan die van $Y$, en we noteren $\lvert X\rvert < \lvert Y\rvert$ als er een injectieve functie van $X$ naar $Y$ bestaat, maar geen injectieve functie van $Y$ naar $X$.
+\end{definitie}
+We kunnen $\lvert X\rvert \leq \lvert Y\rvert$ ook uitdrukken m.b.v.\ surjectieve functies.
+
+\begin{lemma}{}{kardinaliteit-surjectieve-functies}
+    Voor niet-lege verzamelingen $X$ en $Y$ geldt dat $\lvert X\rvert \leq \lvert Y\rvert$ als en slechts als er een surjectieve functie $g: Y \to X$ bestaat.
+\end{lemma}
+\begin{bewijs}{}{}
+    Neem aan dat $\lvert X\rvert \leq \lvert Y\rvert$ zodat er een injectieve functie $f: X \to Y$ bestaat.
+    Neem $x_0 \in X$ willekeurig ($X \neq \emptyset$) en definieer $g: Y \to X$ door
+    \[
+        g(y) =
+        \begin{cases*}
+            x & als $f^{-1} (y)=\{x\}$, \\
+            x_0 & als $f^{-y}(t)=\emptyset$.
+        \end{cases*}.
+    \]
+    Dan is $g$ goed gedefinieerd en het is eenvoudig te controleren dat $g$ inderdaad surjectief is.
+
+    Voor het bewijs van de andere implicatie nemen we aan dat er een surjectieve $g: Y \to X$ bestaat.
+    Voor elke $x \in X$ is $g^{-1}(x)$ dan een niet-lege deelverzameling van $Y$.
+    We kiezen willekeurig element uit $g^{-1}(x)$ en noemen dit element $f(x)$.
+    Op deze manier krijgen we een functie $f: X \to Y$ en het is eenvoudig te zien dat $f$ injectief is.
+    Dus $\lvert X\rvert \leq \lvert Y\rvert$.
+\end{bewijs}
+
+\begin{stelling}{}{kleiner-dan-P}
+    Voor elke verzameling $X$ geldt dat $\lvert X\rvert < \lvert P(X)\rvert$.
+\end{stelling}
+\begin{bewijs}{}{}
+    De functie $f: X \to P(X): x \mapsto \{x\}$ is injectief en daarom is $\lvert X\rvert \leq \lvert P(X)\rvert$.
+    We moeten laten zien dat er geen surjectieve functie van $P(X)$ naar $X$ bestaat.
+    Vanwege \Cref{lem:kardinaliteit-surjectieve-functies} is het voldoende om te laten zien dat er geen surjectieve functie van $X$ naar $P(X)$ bestaat.
+    Neem een willekeurige functie $f: X \to P(X)$.
+    We bewijzen dat $f: X \to P(X)$ niet surjectief kan zijn door te laten zien dat de verzameling
+    \[
+        A = \{x \in X \mid x \notin f(x)\} \in P(X)
+    \] niet tot het beeld van $f$ behoort\marginpar{%
+    Dit bewijzen we uit het ongerijmde.}.
+    Stel dat $f(a) = A$ voor een zekere $a \in X$.
+    Dan zijn er twee mogelijkheden, namelijk $a \in A$ of $a \notin A$.
+    Als $a \in A$, dan volgt uit de definitie van $A$ dat $a \notin f(a)$ maar dan is $a \notin A$ omdat $A = f(a)$.
+    Dit is een tegenspraak.
+    Als $a \notin A$, dan volgt uit de definitie van $A$ dat $a \in f(a)$, we krijgen weer een tegenspraak. 
+
+    In beide gevallen vinden we een tegenspraak en de conclusie is dat $A$ niet tot het beeld,$f(X)$, van $f$ behoort.
+    Dit bewijst dat $f$ niet surjectief is.
+\end{bewijs}
+
+
+\section{Natuurlijke getallen en de axioma's van Peano}
+De natuurlijke getallen
+\[
+    \mathbb{N} = \{0,1,2, \ldots\}
+\] vormen het standaard voorbeeld van een aftelbaar oneindige verzameling.
+Een belangrijk aspect van $\mathbb{N}$ is dat er bij elk getal $n \in \mathbb{N}$ een volgend getal $n + 1$ hoort.
+Dit is de \emph{opvolger} van $n$ in de natuurlijke getallen.
+De opvolger van $0$ is $1$, de opvolger van $1$ is $2$, enzovoort.
+Zo kunnen we elk natuurlijk getal vinden.
+Hiervan wordt gebruikt gemaakt in de axioma's van Guiseppe Peano\marginpar{%
+meer info in de \LaTeX~taak}.
+
+\begin{axioma}{Peano}{peano}
+    De natuurlijke getallen bestaan uit een een verzameling $\mathbb{N}$ met een functie $S: \mathbb{N} \to \mathbb{N}$ en een element $0 \in \mathbb{N}$ zodanig dat
+    \begin{enumerate}[label = (\alph*)]
+        \item $S$ is een injectie,\label{item:peano-I}
+        \item $0$ behoort niet tot het beeld van $S$,\label{item:peano-II}
+        \item als $A$ een deelverzameling is van $\mathbb{N}$ met $0 \in A$ en
+            \[
+                \forall n \in \mathbb{N}: n \in A \implies S(n) \in A,
+            \] dan $A = \mathbb{N}$.\label{item:peano-III}
+    \end{enumerate}
+\end{axioma}
+Het principe van \textbf{volledige inductie} is gebaseerd op onderdeel \labelcref{item:peano-III} van \Cref{axi:peano}\marginpar{Zie~\cite[p.72]{cursus} voor een bewijs van \Cref{stel:inductie} m.b.v.\ \Cref{axi:peano}.}.
+
+\begin{stelling}{}{kleinste-element}
+    Elke niet-lege deelverzameling $B \subset \mathbb{N}$ heeft een kleinste element.
+\end{stelling}
+\begin{bewijs}{}{}
+    Zij $B$ een deelverzameling van $\mathbb{N}$ die geen kleinste element heeft.
+    Voer in
+    \[
+        A = \{n \in \mathbb{N} \mid \forall m \in B: m > n\}.
+    \]
+    Omdat $B$ geen kleinste element heeft, geldt $0 \notin B$.
+    Dan is het eenvoudig om in te zien dat $0 \in A$.
+
+    Neem aan dat $n \in A$.
+    Voor elke $m \in B$ geldt dan dat $m > n$ en dus $m \geq n+ 1$ voor elke $ \in B$.
+    Als $n + 1 \in B$, dan zou $n + 1$ het kleinste element van $B$ zijn.
+    We hebben verondersteld dat $B$ geen kleinste element heeft.
+    Dus $n + 1 \notin B$.
+    Voor elke $m \in B$ is dan $m > n+1 $ en bijgevolg is $n + 1 \in A$.
+    Dan voldoet $A$ aan de voorwaarden in onderdeel \labelcref{item:peano-III} van \Cref{axi:peano}.
+    Er volgt dat $A = \mathbb{N}$.
+    Dan is het eenvoudig in te zien dat $B = \emptyset$.
+
+    De lege verzameling is dus de enige deelverzameling van $\mathbb{N}$ die geen kleinste element heeft.
+    Hiermee is de welordening van $ \mathbb{N}$ bewezen.
+\end{bewijs}
+
+\section{De stelling van Cantor-Bernstein-Schröder}
+\begin{stelling}{Cantor-Bernstein-Schröder}{cantor-bernstein-schroder}
+    Zij $X$ en $Y$ verzamelingen.
+    Als er injectieve functies $f: X \to Y$ en $g: Y \to X$ tussen de verzamelingen $X$ en $Y$ bestaan, dan bestaat er een bijectieve functie $h: X \to Y$.
+\end{stelling}
+\begin{bewijs}{}{}
+    We geven het bewijs voor het speciale geval dat $Y \subset X$ en $g: Y \to X: y \in Y \mapsto y$ de inclusie-afbeelding is.
+    Het algemene geval kan uit dit speciale geval\marginpar{%
+    Zie Oefening 5.3.5 (\cite[p.78]{cursus}).}
+    worden afgeleid.
+    We hebben dus dat $f: X \to Y$ injectief is met $Y \subset X$.
+    We definiëren $X_0 = X, Y_0 = Y$ en inductief
+    \begin{equation}
+        X_{n+1} = f(X_n), \quad Y_{n+1} = f(Y_n), \quad \text{voor}\; n \in \mathbb{N}. \label{eq:cbs-0}
+    \end{equation}
+    Dan is $X_1 = f(X) \subset Y$ en dus $X_1 \subset Y_0 \subset X_0$.
+    Door steeds $f$ toe te passen vinden we eenvoudig m.b.v.\ volledige inductie dat $X_{n+1} \subset Y_n \subset X_n$ geldt voor elke $n \in \mathbb{N}$.
+    We hebben m.a.w.\ een opeenvolging van steeds kleiner wordende deelverzamelingen van $X$:
+    \begin{equation}
+        X = X_0 \supset Y = Y_0 \supset X_1 \supset Y_1 \supset X_2 \supset \cdots
+        \label{eq:cbs-I}
+    \end{equation}
+    We definiëren
+    \begin{equation}
+        A = \bigcup_{n\in \mathbb{N}} (X_n \setminus Y_n). \label{eq:cbs-II}
+    \end{equation}
+    en de functie $h: X \to Y$ door
+    \begin{equation}
+        h: X \to Y: x \mapsto h(x) =
+        \begin{cases*}
+            f(x) & als $x\in A$, \\
+            x & als $x\in X\setminus A$.
+        \end{cases*}
+        \label{eq:cbs-III}
+    \end{equation}
+    We moeten eerst laten zien dat $h$ goed gedefinieerd is als functie van $X$ naar $Y$.
+    Om het bewijs van de stelling af te maken gaan we vervolgens bewijzen dat $h$ zowel injectief als surjectief is.
+
+    \paragraph{Bewijs dat $h$ goed gedefinieerd is.}
+    We moeten eerst laten zien dat $h(x) \in Y$ voor elke $x \in X$, zodat $h$ goed gedefinieerd is als functie van $X$ naar $Y$.
+    Vanwege \cref{eq:cbs-II} geldt
+    \[
+        X \setminus A = X_0 \setminus Y_0 \subset A.
+    \]
+    Hieruit volgt $X \setminus A \subset Y$.
+    Dus, als $x \in X \setminus A$, dan is $h(x) = x \in Y$.
+    Als, anderzijds, $x \in A$, dan is $h(x) = f(x) \in Y$ want $f$ is een functie van $X$ naar $Y$.
+    In beide gevallen is dus $h(x) \in Y$ en $h: X \to Y$ is goed gedefinieerd.
+
+    \paragraph{Bewijs dat $h$ injectief is.}
+    Het is eenvoudig om in te zien dat $h$ injectief is op $A$ en op $X \setminus A$.
+    Voor injectiviteit van $h$ op $X$ volstaat het dus om te bewijzen dat $h(x_1) \neq h(x_2)$ als $x_1 \in A$ en $x_2 \in X \setminus A$\marginpar{We voeren het bewijs uit het ongerijmde.}.
+    Stel dat $x_1 \in A$ en $x_2 \in X \setminus A$ met $h(x_1) \neq h(x_2)$.
+    Uit de definitie van $h$ in \cref{eq:cbs-III} volgt dan dat $f(x_1) = x_2$.
+    Omdat $x_1 \in A$ is er vanwege \cref{eq:cbs-II} een $n \in \mathbb{N}$ met $x_1 \in X_n \setminus Y_n$.
+    Dus $x_1 \in X_n$ en $x_1 \notin Y_n$.
+    Dan volgt uit de definitie in \cref{eq:cbs-0} dat $x_2 = f(x_1) \in f(X_n) = X_{n+1}$.
+    Omdat $f$ injectief is en $x_1 \in Y_n$, volgt ook dat $x_2 = f(x_1) \notin f(Y_n) = Y_{n+1}$.
+    Bijgevolg is
+    \[
+        x_2 \in X_{n+1} \setminus Y_{n+1}
+    \] maar dan is $x_2 \in A$ (zie \cref{eq:cbs-II}), terwijl we hadden aangenomen dat $x_2 \in X \setminus A$.
+    Deze tegenspraak bewijst dat $h$ injectief is.
+    \paragraph{Bewijs dat $h$ surjectief is.}
+    Om de surjectiviteit te bewijzen nemen we $y \in Y$ willekeurig.
+    Als $y \in f(A)$, dan is er een $x \in A$ met $f(x) = y$.
+    Vanwege de definitie van $h$ is dan ook $h(x) = y$.
+
+    We nemen vervolgens aan dat $y \in Y \setminus f(A)$.
+    Stel dat $y \in A$.
+    Dan is $y \in X_n \setminus Y_n$ voor zekere $n \in \mathbb{N}$, vanwege \cref{eq:cbs-II}.
+    Omdat $y \in Y = Y_0$ is $n \geq 1$.
+    Dus $y \in X_n = f(X_{n-1})$ en $y \notin Y_n = f(Y_{n-1})$.
+    Er is dus een $x \in X_{n-1} \setminus Y_{n-1}$ met $y = f(x)$.
+    Dan $x \in A$ en dus $y \in f(A)$.
+    Dit is in tegenspraak met $y \in Y \setminus f(A)$.
+    Bijgevolg is $y \in Y \setminus A$ en dan volgt uit de definitie, \cref{eq:cbs-III}, van $h$ dat $h(y) = y$.
+
+    In beide gevallen vinden we een $x \in X$ met $h(x) = y$.
+    \marginpar{Een alternatief bewijs in~\cite[p.76]{cursus}.}
+    Hiermee is de surjectiviteit van $h$ bewezen.
+\end{bewijs}
+
+
+\section{Kardinaliteit van de rationale- en reële getallen}
+De getallenverzamelingen $\mathbb{N}, \mathbb{Z}, \mathbb{Q}$ en $\mathbb{R}$ zijn bekend vanuit het middelbaar.
+De verzamelingen $\mathbb{N}$ en $\mathbb{Z}$ zijn aftelbaar oneindig.
+\begin{itemize}
+    \item $\mathbb{Q}$ is aftelbaar oneindig\marginpar{%
+        \cite[p.79]{cursus}}.
+    \item $\mathbb{R}$ is overaftelbaar\marginpar{%
+        \cite[p.80]{cursus}}.
+\end{itemize}

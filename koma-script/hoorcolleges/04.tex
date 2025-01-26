@@ -1,0 +1,183 @@
+\chapter{Functies}
+We zien een functie hier als een relatie met een speciale eigenschap.
+\begin{definitie}{}{functie}
+    Zij $f$ een relatie van een verzameling $X$ naar een verzameling $Y$.
+    We noemen $f$ een \textbf{functie} van $X$ naar $Y$ als voor elke $x \in X$ er precies één $y \in Y$ bestaat met $(x,y) \in f$.
+\end{definitie}
+\begin{opmerking}{}
+    Je kan een functie dus ook definiëren als $(f,X,Y)$ om nadruk te leggen op de verzameling, $X \times Y$, waarvan $f$ een deelverzameling is met de eigenschap dat er voor elke $x \in X$ precies één $y \in Y$ is met $(x,y) \in f$.
+\end{opmerking}
+\begin{voorbeeld}{}{}
+    De eenheidsrelatie op een verzameling $X$ is gegeven door
+    \[
+        I_X = \{(x,x) \in X \times X \mid x \in X\}.
+    \]
+    Dit is een functie van $X$ naar $X$ die ook de \textbf{eenheidsfunctie} wordt genoemd.
+    Voor deze functie geldt $I_X(x) = x$ voor elke $x \in X$.
+\end{voorbeeld}
+
+Uit \Cref{def:functie} volgt dat $y$ uniek bepaald wordt door $x$.
+We zeggen dat $y$ het \textbf{beeld} is van $x$ onder $f$.
+Een uitgebreide notatie voor $f$ is
+\[
+    f: X \to Y: x \mapsto f(x).
+\]
+
+Vaak specificeren we een functie $f: X \to Y$ door het beeld $f(x)$ te definiëren.
+Dan is $f(x)$ het \textbf{functievoorschrift} voor de functie.
+Dit moet gedefinieerd zijn voor elke $x \in X$.
+
+Het is belangrijk om een verschil te maken tussen de functie $f$ en het functievoorschrift $f(x)$.
+\begin{voorbeeld}{}{}
+    We spreken over de sinus-functie $\sin$ met als functievoorschrift $\sin x$.
+    Het is niet de functie $\sin x$.
+    In plaats daarvan kunnen we zeggen dat we een functie $f: \mathbb{R} \to \mathbb{R}$ beschouwen met $f(x) = \sin x$ voor elke $x \in \mathbb{R}$.
+    Hiermee bedoelen we dan dat
+    \[
+        f = \{(x,y) \in \mathbb{R} \times \mathbb{R} \mid y = \sin x\}.
+    \]
+\end{voorbeeld}
+\begin{definitie}{Domein}{functies-domein}
+    Zij $f$ een functie van $X$ naar $Y$.
+    Dan is $X$ het \textbf{domein} van $f$ en $Y$ het \textbf{codomein} van $f$.
+\end{definitie}
+
+\begin{stelling}{}{functies-gelijkheid}
+    Zij $f: X_1 \to Y_1$ en $g: X_2 \to Y_2$ twee functies.
+    Dan is $f = g$ als en slechts als $X_1 = X_2$ en $Y_1 = Y_2$ en
+    \[
+        \forall x \in X_1: f(x) = g(x).
+    \]
+\end{stelling}
+
+Het is ook mogelijk om functies samen te stellen, dit is gekend vanuit het middelbaar.
+\begin{definitie}{}{functies-samenstellen}
+    Neem aan dat $f$ een functie is van $X$ naar $Y$ en dat $A \subset X$.
+    Dan kunnen we een functie $g: A \to Y$ definiëren door
+    \[
+        g(x) = f(x)
+        \quad \text{voor elke}\; x \in A.
+    \]
+    Deze functie is de \textbf{beperking} van $f$ tot $A$ en wordt genoteerd door $f\vert_A$.
+\end{definitie}
+\begin{stelling}{}{functies-samenstellen}
+    Neem aan dat $f: X \to Y$ en $g: Y \to Z$.
+    Dan is $g \circ f$ een functie van $X$ naar $Z$ en er geldt
+    \begin{equation}
+        (g \circ f)(x) = g(f(x)) \quad \text{voor elke}\; x \in X.
+        \label{eq:functies-samenstellen}
+    \end{equation}
+\end{stelling}
+\begin{bewijs}{}{}
+    In dit bewijs gebruiken we de notatie m.b.v.\ verzamelingen om functies en relaties weer te geven.
+    Volgens \Cref{def:relaties-samenstelling} is
+    \begin{equation}
+        g \circ f = \{(x,z) \in X \times Z \mid \exists y \in Y: (x,y) \in f \; \text{en}\; (y,z) \in g\}.
+        \label{eq:stel-samenstellen}
+    \end{equation}
+    Neem $x \in X$ willekeurig.
+    We moeten laten zien dat er precies één $z \in Z$ is met $(x,z) \in g \circ f$.
+
+    Eerst bewijzen we de \emph{existentie} van $z$.
+    Neem $y = f(x)$ en $z = g(y)$.
+    Dan is $(x,y) \in f$ en $(y,z) \in g$, zodat uit \cref{eq:stel-samenstellen} volgt dat $(x,z) \in g \circ f$.
+    Er is dus zeker een $z \in Z$ met $(x,z) \in g \circ f$.
+
+    Vervolgens bewijzen we de \emph{uniciteit} van $z$.
+    Dit doen we door aan te nemen dat $z_1, z_2 \in Z$ voldoen aan $(x, z_1) \in g \circ f$ en $(x,z_2) \in g \circ f$ en daaruit te bewijzen dat $z_1 = z_2$.
+    Neem dus aan dat $z_1, z_2 \in Z$ met $(x, z_1) \in g \circ f$ en $(x,z_2) \in g \circ f$.
+    Dan volgt uit \cref{eq:stel-samenstellen} dat er een $y_1 \in Y$ bestaat met $(x,y_1) \in f$ en $(y_1, z_1) \in g$.
+    Net zo is er een $y_2 \in Y$ met $(x,y_2) \in f$ en $(y_2, z_2) \in g$.
+    Omdat $f$ een functie is en $(x,y_1) \in f$ en $(x,y_2) \in f$, volgt $y_1 = y_2$.
+    Dan geldt $(y_1,z_2) = (y_2,z_2) \in g$.
+    Omdat ook $(y_1,z_1) \in g$ en $g$ een functie is, volgt hieruit dat $z_1 = z_2$.
+    Dit bewijst de uniciteit.
+
+    We hebben nu bewezen dat $f \circ g$ een functie is van $X$ naar $Z$.
+    In het bovenstaande existentie-bewijs is al laten zien dat als $y = f(x)$ en $z = g(x)$ dat dan $(x,z) \in (g \circ f)$.
+    Omdat  $g \circ f$ een functie is, kunnen we schrijven $z = (g \circ f)(x)$.
+    Ook geldt $z = g(y) = g(f(x))$.
+    Dit bewijst \cref{eq:functies-samenstellen}.
+\end{bewijs}
+
+\begin{eigenschap}{}{functies-samengesteld-associatief}
+    Het samenstellen van functies is \textbf{associatief}.
+\end{eigenschap}
+
+
+\subsection{Beeld en invers beeld}
+\begin{definitie}{}{functies-invers-beeld}
+    Zij $f: X \to Y$ een functie.
+    Zij $A$ een deelverzameling van $X$.
+    Dan is $f(a)$ de deelverzameling van $Y$ gegeven door
+    \[
+        f(A) = \{y \in Y \mid \exists x \in A: f(x) = y\}.
+    \]
+    We noemen $f(A)$ het \textbf{beeld} van $A$.
+
+    Zij $B$ een deelverzameling van $Y$.
+    Dan is $f^{-1}(B)$ de deelverzameling van $X$ gegeven door
+    \[
+        f^{-1}(B) = \{x \in X \mid f(x) \in B\}.
+    \]
+    We noemen $f^{-1}(B)$ het \textbf{invers beeld} van $B$.
+\end{definitie}
+
+
+\section{Injecties, surjecties en bijecties}
+\begin{definitie}{}{injectie}
+    Een functie $f: X \to Y$ is \textbf{injectief} (of één op één) als ze verschillende waarden aanneemt in verschillende elementen van het domein, dus
+    \[
+        \forall x_1, x_2 \in X: x_1 \neq x_2 \implies f(x_1) \neq f(x_2).
+    \]
+    In dat geval noemen we $f$ een injectieve functie of een \textbf{injectie}.
+\end{definitie}
+Met behulp van contrapositie kunnen we de injectiviteit ook uitdrukken als
+\[
+    \forall x_1, x_2 \in X: f(x_1) = f(x_2) \implies x_1 = x_2.
+\]
+Een functie $f$ is injectief als en slechts als voor elke $y \in Y$ het inverse beeld $f^{-1}(y)$ uit hoogstens één element bestaat.
+
+\begin{definitie}{}{surjectie}
+    Een functie $f: X \to Y$ is \textbf{surjectief} as elk element van het codomein als beeld optreedt; dus als
+    \[
+        \forall y \in Y: \exists x \in X: f(x) = y.
+    \]
+    In dat geval noemen we $f$ een surjectieve functie of een \textbf{surjectie}.
+\end{definitie}
+Een functie $f$ is surjectief als en slechts als voor elke $y \in Y$ het inverse beeld $f^{-1}(y)$ uit minstens één element bestaat (dus niet-leeg is).
+
+\begin{definitie}{}{bijectie}
+    Een functie is \textbf{bijectief} als ze zowel injectief als surjectief is.
+    We noemen zo een functie een \textbf{bijectie}.
+\end{definitie}
+Een functie $f$ is bijectief als en slechts als voor elke $y \in Y$ het inverse beeld $f^{-1}(y)$ uit precies één element bestaat.
+
+
+\subsection{Inverse functies}
+\begin{definitie}{}{inverteerbaarheid}
+    Een functie $f: X \to Y$ is \textbf{inverteerbaar} als er een functie $g: Y \to X$ bestaat met de eigenschappen dat
+    \[
+        g \circ f = I_X
+        \quad \text{en} \quad
+        f \circ g = I_Y.
+    \]
+    In dat geval noemen we $g$ een \textbf{inverse functie} van $f$.
+\end{definitie}
+
+\begin{stelling}{}{inverteerbaarheid}
+    Zij $f: X \to Y$ een functie.
+    Dan is $f$ inverteerbaar als en slechts als $f$ bijectief is.
+    Bovendien is voor een inverteerbare functie de inverse functie uniek bepaald.
+\end{stelling}
+\begin{bewijs}{}{}
+    Zie~\cite[p. 61]{cursus}.
+\end{bewijs}
+
+Een injectieve functie die niet bijectief is kan bijectief gemaakt worden door het codomein te beperken. Zij namelijk $f: X \to Y$ injectief.
+Dan is de functie
+\[
+    \hat{f}: X \to f(X): x \mapsto \hat{f}(x) = f(x)
+\] die we uit $f$ verkrijgen door het codomein van $Y$ te beperken tot $f(X)$, zowel injectief als surjectief.
+Dus is $\hat{f}$ bijectief en bijgevolg inverteerbaar vanwege \Cref{stel:inverteerbaarheid}.
+De inverse functie ${(\hat{f})}^{-1}$ bestaat dus.

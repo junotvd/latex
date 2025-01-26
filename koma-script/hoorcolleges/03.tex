@@ -1,0 +1,203 @@
+\chapter{Relaties}
+\begin{definitie}{Relatie}{relatie}
+    Een \textbf{relatie} is een drietal
+    \[
+        (R,X,Y),
+    \] waarin $X$ en $Y$ verzamelingen zijn en $R$ een deelverzameling is van het Cartesisch product $X \times Y$.
+    Dus
+    \[
+        R \subset X \times Y.
+    \]
+    Meestal zijn de verzamelingen $X$ en $Y$ duidelijk uit de context en dan spreken we van een relatie $R$ van de verzameling $X$ naar $Y$ i.p.v.\ $(R,X,Y)$.
+
+    Een relatie is een eigenschap die kan gelden tussen de elementen van $X$ en de elementen van $Y$.
+    De eigenschap geldt tussen $x \in X$ en $y \in Y$ als en slechts als $(x,y) \in R$ (andere notatie is $xRy$).
+\end{definitie}
+\begin{opmerking}{}
+    Een relatie $R$ van $X$ naar $X$ noemen we de relatie $R$ op $X$.
+\end{opmerking}
+\begin{definitie}{Domein en beeld}{relatie-domein-beeld}
+    Zij $R$ een relatie van $X$ naar $Y$.
+    Het \textbf{domein} van $R$ is
+    \[
+        \dom R = \{x \in X \mid \exists y \in Y: (x,y) \in R\}
+    \]
+    en het \textbf{beeld} van $R$ is
+    \[
+        \bld R = \{y \in Y \mid \exists x \in X: (x,y) \in R\}.
+    \]
+\end{definitie}
+\begin{definitie}{Eenheidsrelatie}{eenheidsrelatie}
+    De \textbf{eenheidsrelatie} op $X$ is
+    \[
+        I_X = \{(x,x) \in X \times X \mid x \in X\}.
+    \]
+\end{definitie}
+\begin{eigenschap}{}{relaties-gelijkheid}
+    Twee relaties $R_1$, van $X_1$ naar $Y_1$, en $R_2$, van $X_2$ naar $Y_2$, zijn gelijk als en slechts als
+    \begin{itemize}
+        \item $X_1 = X_2$ en $Y_1 = Y_2$ en
+        \item $(x,y) \in R_1$ als en slechts als $(x,y) \in R_2$ voor alle $x \in X_1 = X_2$ en voor alle $y \in Y_1 = Y_2$.
+    \end{itemize}
+\end{eigenschap}
+\begin{definitie}{Inverse relatie}{relaties-inverse}
+    Zij $R$ een relatie van $X$ naar $Y$, dan is de \textbf{inverse relatie} van $R$ de relatie $R^{-1}$ van $Y$ naar $X$ gedefinieerd door
+    \[
+        R^{-1} = \{(y,x) \in Y \times X \mid (x,y) \in R\}.
+    \]
+\end{definitie}
+\begin{definitie}{Samengestelde relaties}{relaties-samenstelling}
+    Zij $R$ een relatie van $X$ naar $Y$ en $S$ een relatie van $Y$ naar $Z$.
+    Dan is de \textbf{samenstelling} $S \circ R$ de relatie van $X$ naar $Z$ gedefinieerd door
+    \[
+        S \circ R = \{(x,z) \in X \times Z \mid \exists y \in Y: (x,y) \in R\,\, \text{en}\,\, (y,z) \in S\}.
+    \]
+\end{definitie}
+
+
+\section{Equivalentierelaties}
+\begin{definitie}{}{relaties-drie-belangrijke}
+    Zij $R$ een relatie op $X$.
+    \begin{enumerate}[label = (\alph*)]
+        \item We noemen $R$ \textbf{reflexief} als
+            \[
+                \forall x \in X: (x,x) \in R.
+            \]
+        \item We noemen $R$ \textbf{symmetrisch} als
+            \[
+                \forall x,y \in X: (x,y) \in R \implies (y,x) \in R.
+            \]
+        \item We noemen $R$ \textbf{transitief} als
+            \[
+                \forall x,y,z \in X: ((x,y) \in R\,\, \text{en}\,\, (y,z) \in R) \implies (x,z) \in R.
+            \]
+    \end{enumerate}
+\end{definitie}
+\begin{definitie}{}{relaties-equivalentierelatie}
+    Als een relatie $R$ op $X$ reflexief, symmetrisch en transitief is, dan noemen we $R$ een \textbf{equivalentierelatie} op $X$.
+
+    Als $R$ een equivalentierelatie is en $(x,y) \in R$, dan zeggen we dat $x$ en $y$ \textbf{equivalent} zijn (t.o.v.\ $R$) en we noteren $x \sim_R y$ of kortweg $x \sim y$.
+\end{definitie}
+
+
+\subsection{Partities en equivalentieklassen}
+\begin{definitie}{Partitie}{relaties-partitie}
+    Een \textbf{partitie $\mathcal{P}$} van een verzameling $X$ is een deelverzameling van de machtsverzameling $P(X)$ met de eigenschappen
+    \begin{enumerate}[label = (\alph*)]
+        \item De verzamelingen in $\mathcal{P}$ zijn niet leeg, dus
+            \[
+                \forall A \in \mathcal{P}: A \neq 0.
+            \]
+        \item De verzamelingen in $\mathcal{P}$ zijn onderling disjunct, dus
+            \[
+                \forall A, B \in \mathcal{P}: A \neq B \implies A \cap B \neq \emptyset.
+            \]
+        \item De verzamelingen in $\mathcal{P}$ overdekken $X$, dus
+            \[
+                \forall x \in X: \exists A \in \mathcal{P}: x \in A.
+            \]
+            Dit is equivalent met
+            \[
+                X = \bigcup_{A \in \mathcal{P}} A.
+            \]
+    \end{enumerate}
+\end{definitie}
+\begin{definitie}{Equivalentieklasse}{relaties-equivalentieklasse}
+    Zij $\sim$ een equivalentierelatie op $X$ en zij $x \in X$.
+    Dan is $\{y \in X \mid x \sim y\}$ de \textbf{equivalentieklasse} van $x$ m.b.t.\ $\sim$.
+    Dit wordt genoteerd met $\lbrack x \rbrack_\sim$ of kortweg $\lbrack x \rbrack$ als het duidelijk is welke equivalentierelatie bedoeld wordt.
+    Dus
+    \[
+        \lbrack x \rbrack = \{y \in X \mid x \sim y\}.
+    \]
+    De verzameling van alle equivalentieklassen van $\sim$ wordt genoteerd met $X \slash \sim$.
+    Dus
+    \begin{align*}
+        X \slash \sim &= \{\lbrack x \rbrack \mid x \in X\} \\
+                      &= \{A \subset X \mid \exists x \in X: A = \lbrack x \rbrack\}.
+    \end{align*}
+    De verzameling $X \slash \sim$ wordt de \textbf{quotiëntverzameling} van $X$ t.o.v.\ de equivalentierelatie $\sim$ genoemd.
+\end{definitie}
+Dit leidt tot de belangrijkste stelling over equivalentierelaties.
+
+\begin{stelling}{}{relaties-belangrijk}
+    Zij $\sim$ een equivalentierelatie op $X$.
+    Dan is $X \slash \sim$ een partitie van $X$.
+\end{stelling}
+Om dit te bewijzen hebben we eenvoudigere hulpresultaten nodig.
+Zulke hulpresultaten worden vaak \textbf{lemma's} genoemd.
+
+\begin{lemma}{}{relaties-belangrijk}
+    Zij $\sim$ een equivalentierelatie op $X$.
+    Dan geldt voor alle $x,y \in X$:
+    \begin{enumerate}[label = (\alph*)]
+        \item $x \in \lbrack x \rbrack \,\, \text{en}\,\, \lbrack x \rbrack = \emptyset$,
+        \item als $x \sim y$, dan $\lbrack x \rbrack = \lbrack y \rbrack$,
+        \item als $\neg(x \sim y)$, dan $\lbrack x \rbrack \cap \lbrack y \rbrack = \emptyset$.
+    \end{enumerate}
+\end{lemma}
+\begin{bewijs}{}{}
+    \begin{enumerate}[label = (\alph*)]
+        \item Omdat $\sim$ reflexief is, geldt $x \in \lbrack x \rbrack$ en dus is $\lbrack x \rbrack$ niet leeg.
+        \item Neem aan dat $x \sim y$.
+            We willen bewijzen dat $\lbrack x \rbrack = \lbrack y \rbrack$ en hiertoe bewijzen we twee inclusies.
+            \begin{itemize}
+                \item Bewijs dat $\lbrack x \rbrack \subset \lbrack y \rbrack$: Kies $z \in \lbrack x \rbrack$ willekeurig.
+                    Dit betekent dat $x \sim z$.
+                    We weten ook dat $x \sim y$ en vanwege symmetrie is dan ook $y \sim x$.
+                    Uit $y \sim x$ en $x \sim z$ volgt, vanwege transitiviteit, dat $y \sim z$ en dit betekent dat $z \in \lbrack y \rbrack$.
+                    We hebben $z \in \lbrack x \rbrack$ willekeurig gekozen en dus volgt er dat $\lbrack x \rbrack \subset \lbrack y \rbrack$.
+                \item Bewijs dat $\lbrack y \rbrack \subset \lbrack x \rbrack$: Kies $z \in \lbrack y \rbrack$ willekeurig.
+                    Dan geldt $y \sim z$.
+                    Er geldt ook $x \sim y$ en vanwege transitiviteit is dan ook $x \sim z$.
+                    Dit betekent $z \in \lbrack x \rbrack$.
+                    Omdat $z \in \lbrack y \rbrack$ willekeurig gekozen is volgt er dat $\lbrack y \rbrack \subset \lbrack x \rbrack$.
+            \end{itemize}
+            Beide inclusies zijn bewezen dus er geldt inderdaad $\lbrack x \rbrack = \lbrack y \rbrack$.
+        \item We moeten bewijzen dat $\neg(x \sim y) \implies \lbrack x \rbrack \cap \lbrack y \rbrack = \emptyset$.
+            We doen dit m.b.v.\ contrapositie.
+            We bewijzen dus
+            \[
+                \lbrack x \rbrack \cap \lbrack y \rbrack \neq \emptyset \implies x \sim y.
+            \]
+            Neem aan dat $\lbrack x \rbrack \cap \lbrack y \rbrack \neq \emptyset$.
+            Dan is er een $z \in \lbrack x \rbrack \cap \lbrack y \rbrack$.
+            Omdat $z \in \lbrack x \rbrack$ geldt $x \sim z$ en omdat $z \in \lbrack y \rbrack$ geldt $y \sim z$.
+            Vanwege de symmetrie is dan ook  $z \sim y$.
+            Uit $x \sim z$ en $z \sim y$ volgt dat $x \sim y$ vanwege de transitiviteit van de equivalentierelatie.
+    \end{enumerate}
+            Dit is wat we moesten bewijzen.
+\end{bewijs}
+Nu kunnen we \Cref{stel:relaties-belangrijk} bewijzen.
+\begin{bewijs}{\Cref{stel:relaties-belangrijk}}{}
+    We moeten bewijzen dat $X \slash \sim$ voldoet aan de drie voorwaarden van \Cref{def:relaties-partitie}.
+    \begin{enumerate}[label = (\alph*)]
+        \item Als $A \in X \slash \sim$, dan is er een $x \in X$ met $A = \lbrack x \rbrack$.
+            Op grond van onderdeel (a) van het lemma is $A \neq \emptyset$.
+        \item Neem aan dat $A, B \in X \slash \sim$ twee elementen van $X \slash \sim$ zijn.
+            Er zijn $x$ en $y$ in $X$ met $A = \lbrack x \rbrack$ en $B = \lbrack y \rbrack$.
+            Er zijn twee mogelijkheden, nl.\ $x \sim y$ en $\neg(x \sim y)$.
+            Als $x \sim y$ dan volgt uit onderdeel (b) van \Cref{lem:relaties-belangrijk} dat $A = B$ en als $\neg(A \sim B)$, dan volgt uit onderdeel (c) van het lemma dat $A \cap B = \emptyset$.
+
+            Als $A \neq B$ volgt dus dat $A \cap B = \emptyset$, hetgeen betekent dat de elementen van $X \slash \sim$ onderling disjunct zijn.
+        \item Kies $x \in X$.
+            Dan is $x \in \lbrack x \rbrack$ vanwege onderdeel (a) van \Cref{lem:relaties-belangrijk}.
+            Er is dus een $A \in X \slash \sim$ met $x \in A$ (nl.\ $A = \lbrack x\rbrack$).
+    \end{enumerate}
+\end{bewijs}
+
+\begin{stelling}{}{}
+    Zij $\mathcal{P}$ een partitie van $X$.
+    Dan definieert
+    \[
+        x \sim y \iff (\exists A \in \mathcal{P}: x \in A \land y \in A)
+    \] een equivalentierelatie op $X$.
+    De equivalentieklassen van $\sim$ zijn precies de elementen van $\mathcal{P}$.
+    Dus
+    \[
+        X \slash \sim = \mathcal{P}.
+    \]
+\end{stelling}
+\begin{bewijs}{}{}
+    Dit is een oefening.
+\end{bewijs}
