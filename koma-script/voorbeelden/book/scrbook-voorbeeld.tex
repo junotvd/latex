@@ -1,0 +1,73 @@
+% ------------
+% INSTELLINGEN
+% ------------
+
+\documentclass[
+    fontsize=10pt,
+    twoside=false,
+    usegeometry,
+    autoenlargeheadfoot=false,
+    toc=bibliography,
+]{scrbook}
+
+\usepackage{geometry}
+\geometry{%
+    paperwidth=210mm,
+	paperheight=297mm,
+    top=72pt,
+    marginparsep=20pt,
+    marginparwidth=60pt,
+    textheight=690pt,
+    footskip=40pt,
+}
+
+\input{../../preamble.tex}
+
+
+
+% --------
+% DOCUMENT
+% --------
+
+\title{KOMA-Script Book}
+\subtitle{Voorbeeld}
+\titlehead{Nederlands}
+
+\date{Datum}
+
+\begin{document}
+    \frontmatter
+
+    \maketitle
+    \tableofcontents
+    \chapter{Inleiding}
+    Dit is de inleiding van het document, dit hoofdstuk is niet genummerd.
+    Merk op dat de paginanummering in Romeinse cijfers is.
+
+    \mainmatter
+    \chapter{Eerste hoofdstuk}
+    \lipsum[1]
+    \begin{stelling}{}{i}
+        Dit is een stelling met volgende vergelijking:
+        \begin{equation}\label{eq:i}
+            f\colon \mathbb{R} \to \mathbb{R}\colon x \mapsto f(x) = \int_{a}^{b} \frac{d^2y}{dx^2}\,dx.
+        \end{equation}
+  \end{stelling}
+  We kunnen verwijzen naar \cref{eq:i} in \Cref{stel:i}.
+  \begin{bewijs}{}{}
+      Dit is het bewijs van \Cref{stel:i}.
+  \end{bewijs}
+  \begin{gevolg}{}{i}
+      Dit is een gevolg van \Cref{stel:i}.
+  \end{gevolg}
+  \begin{voorbeeld}{}{i}
+      We kunnen \Cref{gev:i} aantonen met dit voorbeeld.
+  \end{voorbeeld}
+
+  \paragraph{Paragraaf}
+  \lipsum[2]
+
+    \chapter{Tweede hoofdstuk}
+    \lipsum
+
+\end{document}
