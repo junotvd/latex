@@ -8,7 +8,7 @@
     usegeometry,
     autoenlargeheadfoot=false,
     toc=bibliography,
-]{scrbook}
+]{scrreprt}
 
 \usepackage{geometry}
 \geometry{%
@@ -29,22 +29,19 @@
 % DOCUMENT
 % --------
 
-\title{KOMA-Script Book}
+\title{KOMA-Script Report}
 \subtitle{Voorbeeld}
 \titlehead{Nederlands}
 
 \date{Datum}
 
 \begin{document}
-    \frontmatter
 
     \maketitle
     \tableofcontents
-    \chapter{Inleiding}
+    \chapter*{Inleiding}
     Dit is de inleiding van het document, dit hoofdstuk is niet genummerd.
-    Merk op dat de paginanummering in Romeinse cijfers is.
 
-    \mainmatter
     \chapter{Eerste hoofdstuk}
     \lipsum[1]
     \begin{stelling}{}{i}
