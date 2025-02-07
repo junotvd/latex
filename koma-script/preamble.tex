@@ -71,12 +71,9 @@
 \usepackage{xifthen}
 \makeatletter
 \def\@les{}%
-\newcommand{\les}[4]{%
-    \ifthenelse{\isempty{#4}}{%
-        \def\@les{#1 #2}%
-    }{%
-        \def\@les{#1 #2}%
-    }%
+\newcommand{\les}[3]{%
+    \def\@les{#1 #2}%
+    {\def\@les{#1 #2}}
     \subsection*{\@les}
     \marginpar{\small\textsf{\mbox{#3}}}
 }
