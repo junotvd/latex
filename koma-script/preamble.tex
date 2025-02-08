@@ -3,6 +3,19 @@
 \usepackage{lmodern}
 \usepackage[main=dutch,provide=*]{babel}
 
+\usepackage{geometry}
+\geometry{%
+    paperwidth=210mm,
+	paperheight=297mm,
+    top=72pt,
+    marginparsep=20pt,
+    marginparwidth=60pt,
+    head=24pt,
+    textheight=690pt,
+    footskip=40pt,
+}
+
+
 \usepackage{float}
 \usepackage{ragged2e}
 \usepackage{needspace}
@@ -86,7 +99,7 @@
     \def\svgwidth{#1\columnwidth}
     \import{./figures/}{#2.pdf_tex}
 }
-\pdfsuppreswarningpagegroup=1
+% \pdfsuppreswarningpagegroup=1
 
 
 \usepackage[most]{tcolorbox}
