@@ -54,7 +54,7 @@
 \renewcommand\leq{\leqslant}
 
 \let\epsilon\varepsilon
-\let\phi\varphi
+% \let\phi\varphi
 
 \DeclareMathOperator{\dom}{dom}
 \DeclareMathOperator{\bld}{bld}
@@ -78,6 +78,15 @@
     \marginpar{\small\textsf{\mbox{#3}}}
 }
 \makeatother
+
+\usepackage{import}
+\usepackage{pdfpages}
+\usepackage{transparent}
+\newcommand{\incfig}[2][1]{%
+    \def\svgwidth{#1\columnwidth}
+    \import{./figures/}{#2.pdf_tex}
+}
+\pdfsuppreswarningpagegroup=1
 
 
 \usepackage[most]{tcolorbox}
@@ -173,7 +182,10 @@
     {voorbeeld}{Voorbeeld}{plainstyle,breakable}{vb}
 
 \newtcbtheorem[use counter from=definitie,crefname={toepassing}{toepassingen}]%
-    {toepassing}{toepassing}{plainstyle,breakable}{tp}
+    {toepassing}{Toepassing}{plainstyle,breakable}{tp}
+
+\newtcbtheorem[auto counter,crefname={oefening}{oefeningen}]%
+    {oefening}{Oefening}{plainstyle,breakable}{oef}
 
 \AtEndEnvironment{bewijs}{\qed}
 \AtEndEnvironment{voorbeeld}{\null\hfill$\diamond$}
