@@ -1,6 +1,6 @@
-\usepackage[T1]{fontenc}
-\usepackage{textcomp}
-\usepackage{lmodern}
+\usepackage{fontspec}
+% \usepackage[bitstream-charter]{mathdesign}
+
 \usepackage[main=dutch,provide=*]{babel}
 
 \usepackage{geometry}
@@ -88,7 +88,8 @@
     \def\@les{#1 #2}%
     {\def\@les{#1 #2}}
     \subsection*{\@les}
-    \marginpar{\small\textsf{\mbox{#3}}}
+    % \marginpar{\small\textsf{\mbox{#3}}}
+    \makenote{\small\textsf{\mbox{#3}}}
 }
 \makeatother
 
