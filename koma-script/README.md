@@ -1,5 +1,6 @@
-## TColorBox
-### Theorems (dutch)
+This repository contains a collection of LaTeX templates that I use for my notes.
+It uses KOMA-Script for the document class and is suposed to be compiled with XeLateX or LuaLaTeX.
+### Theorems (dutch) using TColorBox
 ```tex
 \begin{THEOREM}{TITLE}{REFNAME}
     TEXT
