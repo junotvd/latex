@@ -1,10 +1,10 @@
 ## TColorBox
 ### Theorems (dutch)
-``tex
+```tex
 \begin{THEOREM}{TITLE}{REFNAME}
     TEXT
 \end{THEOREM}
-``
+```
 Note: `TITLE` and `REFNAME` are optional.
 
 #### Theorem name and refname-prefix
@@ -22,11 +22,11 @@ Note: `TITLE` and `REFNAME` are optional.
 - Oefening: `oef`
 
 ### Boxes
-``tex
+```tex
 \begin{THEOREM}{TITLE}
     TEXT
 \end{THEOREM}
-``
+```
 Note: `TITLE` is optional.
 
 #### Box name
