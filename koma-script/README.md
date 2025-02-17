@@ -8,18 +8,26 @@
 Note: `TITLE` and `REFNAME` are optional.
 
 #### Theorem name and refname-prefix
-- Definitie: `def`
-- Axioma: `ax`
-- Eigenschap: `prop`
-- Lemma: `lem`
-- Stelling: `stel`
-- Bewering: `bwr`
-- Propositie: `prop`
-- Gevolg: `gev`
-- Bewijs: `bew`
-- Voorbeeld: `vb`
-- Toepassing: `tp`
-- Oefening: `oef`
+- definitie: `def`
+- axioma: `ax`
+- eigenschap: `prop`
+- lemma: `lem`
+- stelling: `stel`
+- bewering: `bwr`
+- propositie: `prop`
+- gevolg: `gev`
+- bewijs: `bew`
+- voorbeeld: `vb`
+- toepassing: `tp`
+- oefening: `oef`
+
+Example:
+```tex
+\begin{stelling}{Pythagoras}{pyt}
+    In een rechthoekige driehoek is de som van de kwadraten van de rechthoekszijden gelijk aan het kwadraat van de schuine zijde.
+\end{stelling}
+Zoals gezien in \cref{stel:pyt} ...
+```
 
 ### Boxes
 ```tex
@@ -30,13 +38,20 @@ Note: `TITLE` and `REFNAME` are optional.
 Note: `TITLE` is optional.
 
 #### Box name
-- Oplossing
-- Antwoord
-- Uitwerking
-- Opmerking
-- Hint
-- Herinner
-- Intermezzo
-- Notatie
-- Conventie
-- Vraag
+- oplossing
+- antwoord
+- uitwerking
+- opmerking
+- hint
+- herinner
+- intermezzo
+- notatie
+- conventie
+- vraag
+
+Example:
+```tex
+\begin{notatie}{}
+    We noteren \Re als het reële deel van een complex getal.
+\end{notatie}
+```
