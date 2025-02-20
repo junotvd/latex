@@ -47,6 +47,7 @@ Note: `TITLE` is optional.
 - notatie
 - conventie
 - vraag
+- interpretatie
 
 Example:
 ```tex
