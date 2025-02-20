@@ -192,7 +192,7 @@
     {gevolg}{Gevolg}{boxstyle,breakable}{gev}
 
 \newtcbtheorem[no counter,crefname={bewijs}{bewijzen}]%
-    {bewijs}{Bewijs}{plainstyle,breakable}{bew}
+    {bewijs}{Bewijs}{plainstyle,breakable,top=0mm}{bew}
 
 \newtcbtheorem[use counter from=definitie,crefname={voorbeeld}{voorbeelden}]%
     {voorbeeld}{Voorbeeld}{plainstyle,breakable}{vb}
@@ -207,11 +207,11 @@
 \AtEndEnvironment{voorbeeld}{\null\hfill$\diamond$}
 
 
-\newtcolorbox{oplossing}{plainstyle,title=Oplossing}
-\newtcolorbox{antwoord}{plainstyle,title=Antwoord}
-\newtcolorbox{uitwerking}{plainstyle,title=Uitwerking}
+\newtcolorbox{oplossing}{plainstyle,title=Oplossing,top=0mm}
+\newtcolorbox{antwoord}{plainstyle,title=Antwoord,top=0mm}
+\newtcolorbox{uitwerking}{plainstyle,title=Uitwerking,top=0mm}
 \newtcolorbox{opmerking}{plainstyle,title=Opmerking}
-\newtcolorbox{hint}{plainstyle,title=Hint}
+\newtcolorbox{hint}{plainstyle,title=Hint,top=0mm}
 \newtcolorbox{herinner}{plainstyle,title={Herinner}}
 \newtcolorbox{intermezzo}{plainstyle,title=Intermezzo}
 \newtcolorbox{notatie}{plainstyle,title=Notatie}
