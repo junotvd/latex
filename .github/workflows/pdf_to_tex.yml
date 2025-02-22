@@ -19,9 +19,8 @@ jobs:
             texlive-fonts-recommended \
             texlive-fonts-extra \
             texlive-latex-extra \
-            biblatex \
-            biber \
             texlive-luatex
+          sudo apt-get install texlive-bibtex-extra biber
 
     - name: Compile
       run: |
