@@ -19,7 +19,8 @@ jobs:
             texlive-fonts-recommended \
             texlive-fonts-extra \
             texlive-latex-extra \
-            texlive-biblatex \
+            biblatex \
+            biber \
             texlive-luatex
 
     - name: Compile
