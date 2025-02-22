@@ -23,8 +23,8 @@ jobs:
 
     - name: Compile
       run: |
-        cd /home/runner/work/latex/latex/koma-script/voorbeelden/book/scrbook-voorbeeld.tex
-        lualatex -interaction=nonstopmode main.tex
+        cd /home/runner/work/latex/latex/koma-script/voorbeelden/book/
+        lualatex -interaction=nonstopmode scrbook-voorbeeld.tex
 
     - name: Commit and push PDFs
       run: |
