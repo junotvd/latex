@@ -53,11 +53,12 @@
 
 
 \usepackage[
-    colorlinks,
-    linkcolor={black},
-    citecolor={black},
-    urlcolor={blue!80!black},
-    pdfborder = {0 0 0},
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=magenta,
+    citecolor=black,
+    urlcolor=cyan,
+    pdfpagemode=FullScreen,
 ]{hyperref}
 
 \usepackage[dutch]{cleveref}
@@ -112,6 +113,7 @@
 }
 \tcbset{%
     boxstyle/.style = {%
+        parbox=false,
         enhanced,
         sharp corners,
         colframe = black,
@@ -131,13 +133,14 @@
         boxrule = 0.5pt,
     },
     proofstyle/.style = {%
+        parbox=false,
         enhanced,
         blanker,
         breakable,
         coltitle = black,
         fonttitle = \sffamily\bfseries,
         description font = \mdseries,
-        attach title to upper = {.\:},
+        attach title to upper = {.\;},
         left = 5mm,
         top = 1mm,
         borderline west = {0.5pt}{0pt}{black},
@@ -145,14 +148,15 @@
         separator sign none,
     },
     plainstyle/.style = {%
+        parbox=false,
         enhanced,
         sharp corners,
         boxrule = 0pt,
         boxsep = 0mm,
         left = 0mm,
         breakable,
-        attach title to upper = {.\;},
-        % after title = {.},
+        attach title to upper = {.\:},
+        % after title = {\;},
         description font = \mdseries,
         coltitle = black,
         colback = white,
@@ -211,12 +215,12 @@
 \newtcolorbox{antwoord}{plainstyle,title=Antwoord,top=0mm}
 \newtcolorbox{uitwerking}{plainstyle,title=Uitwerking,top=0mm}
 \newtcolorbox{opmerking}{plainstyle,title=Opmerking}
-\newtcolorbox{hint}{plainstyle,title=Hint,top=0mm,fontupper=\itshape}
+\newtcolorbox{hint}{plainstyle,title=Hint,top=0mm,fonttitle=\itshape,fontupper=\itshape,top=0mm}
 \newtcolorbox{herinner}{plainstyle,title={Herinner}}
 \newtcolorbox{intermezzo}{plainstyle,title=Intermezzo}
 \newtcolorbox{notatie}{plainstyle,title=Notatie}
 \newtcolorbox{conventie}{plainstyle,title=Conventie}
-\newtcolorbox{interpretatie}{plainstyle,title=interpretatie}
+\newtcolorbox{interpretatie}{plainstyle,title=Interpretatie}
 \newtcolorbox[auto counter]{vraag}{plainstyle,title={Vraag~\thetcbcounter}}
 
 
