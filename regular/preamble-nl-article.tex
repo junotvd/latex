@@ -1,0 +1,257 @@
+% \usepackage[T1]{fontenc}
+% \usepackage{PTSerif}
+\usepackage{fontspec}
+% \usepackage[bitstream-charter]{mathdesign}
+
+\usepackage[main=dutch,provide=*]{babel}
+
+
+% \usepackage{geometry}
+% \geometry{%
+%     paperwidth=210mm,
+% 	paperheight=297mm,
+%     top=72pt,
+%     marginparsep=20pt,
+%     marginparwidth=60pt,
+%     head=24pt,
+%     textheight=690pt,
+%     footskip=40pt,
+% }
+
+
+\usepackage{float}
+\usepackage{ragged2e}
+\usepackage{needspace}
+\usepackage{xspace}
+
+\usepackage{csquotes}
+\usepackage{parskip}
+
+\usepackage{tikz}
+\usepackage{graphicx}
+
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{enumitem}
+
+\usepackage{amsmath, amsfonts, mathtools, amsthm, amssymb}
+\usepackage{bm, cancel}
+
+\usepackage{microtype} %load after amsthm
+
+% \usepackage{showframe}
+% \usepackage{layout}
+\usepackage{lipsum}
+
+\usepackage[
+    sorting = nyt,
+    style = alphabetic
+]{biblatex}
+
+\usepackage[
+    inner=30mm,
+    outer=30mm,
+    top=25mm,
+    bottom=25mm
+]{geometry}
+
+
+\usepackage[
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=magenta,
+    citecolor=black,
+    urlcolor=cyan,
+    pdfpagemode=FullScreen,
+]{hyperref}
+
+
+\usepackage{fancyhdr}
+\fancypagestyle{plain}{%
+    \fancyhf{}
+    \fancyfoot[R]{\thepage}
+}
+
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+
+\fancyhead[LE, RO]{\thepage}
+\fancyhead[RE]{\slshape\nouppercase{\leftmark}}
+\fancyhead[LO]{\slshape\nouppercase{\rightmark}}
+\fancyfoot[C]{}
+
+
+\usepackage[dutch]{cleveref}
+\crefname{equation}{}{}
+\Crefname{equation}{Vergelijking}{Vergelijkingen}
+
+
+\renewcommand\geq{\geqslant}
+\renewcommand\leq{\leqslant}
+
+\let\epsilon\varepsilon
+% \let\phi\varphi
+
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\bld}{bld}
+
+
+\usepackage{xifthen}
+\makeatletter
+\def\@les{}%
+\newcommand{\les}[3]{%
+    \def\@les{#1 #2}%
+    {\def\@les{#1 #2}}
+    \subsection*{\@les}
+    \marginpar{\small\textsf{\mbox{#3}}}
+}
+\makeatother
+
+\usepackage{import}
+\usepackage{pdfpages}
+\usepackage{transparent}
+\newcommand{\incfig}[2][1]{%
+    \def\svgwidth{#1\columnwidth}
+    \import{./figures/}{#2.pdf_tex}
+}
+% \pdfsuppreswarningpagegroup=1
+
+
+\usepackage[most]{tcolorbox}
+
+\tcbset{%
+    parbox = false,
+}
+\tcbset{%
+    boxstyle/.style = {%
+        parbox=false,
+        enhanced,
+        sharp corners,
+        colframe = black,
+        coltitle = black,
+        colback = white,
+        fonttitle = \bfseries,
+        after title = {.},
+        description font = \mdseries,
+        attach boxed title to top left = {xshift=2mm, yshift=-2.5mm},
+        separator sign none,
+        description delimiters parenthesis,
+        boxed title style = {%
+            colframe = white,
+            colback = white,
+            sharp corners,
+        },
+        boxrule = 0.5pt,
+    },
+    proofstyle/.style = {%
+        parbox=false,
+        enhanced,
+        blanker,
+        breakable,
+        coltitle = black,
+        fonttitle = \bfseries,
+        description font = \mdseries,
+        attach title to upper = {.\;},
+        left = 5mm,
+        top = 1mm,
+        borderline west = {0.5pt}{0pt}{black},
+        description delimiters parenthesis,
+        separator sign none,
+    },
+    plainstyle/.style = {%
+        parbox=false,
+        enhanced,
+        sharp corners,
+        boxrule = 0pt,
+        boxsep = 0mm,
+        left = 0mm,
+        breakable,
+        attach title to upper = {.\:},
+        % after title = {\;},
+        description font = \mdseries,
+        coltitle = black,
+        colback = white,
+        colframe = white,
+        fonttitle = \itshape,
+        description delimiters parenthesis,
+        separator sign none,
+    },
+    plainstylebold/.style = {%
+        parbox=false,
+        enhanced,
+        sharp corners,
+        boxrule = 0pt,
+        boxsep = 0mm,
+        left = 0mm,
+        breakable,
+        attach title to upper = {.\:},
+        % after title = {\;},
+        description font = \mdseries,
+        coltitle = black,
+        colback = white,
+        colframe = white,
+        fonttitle = \bfseries,
+        description delimiters parenthesis,
+        separator sign none,
+    },
+    wrongstyle/.style = {%
+        colback = red,
+    },
+}
+
+
+\newtcbtheorem[auto counter,number within=section,crefname={definitie}{definities}]%
+    {definitie}{Definitie}{boxstyle}{def}
+
+\newtcbtheorem[use counter from=definitie,crefname={axioma}{axiomas}]%
+    {axioma}{Axioma}{boxstyle}{axi}
+
+\newtcbtheorem[use counter from=definitie,crefname={eigenschap}{eigenschappen}]%
+    {eigenschap}{Eigenschap}{plainstylebold,breakable}{eig}
+
+\newtcbtheorem[use counter from=definitie,crefname={lemma}{lemmas}]%
+    {lemma}{Lemma}{boxstyle,fontupper=\itshape}{lem}
+
+\newtcbtheorem[use counter from=definitie,crefname={stelling}{stellingen}]%
+    {stelling}{Stelling}{boxstyle,fontupper=\itshape}{stel}
+
+\newtcbtheorem[use counter from=definitie]%
+    {bewering}{Bewering}{boxstyle,fontupper=\itshape}{bewr}
+
+\newtcbtheorem[use counter from=definitie,crefname={propositie}{proposities}]%
+    {propositie}{Propositie}{boxstyle,fontupper=\itshape}{prop}
+
+\newtcbtheorem[use counter from=definitie,crefname={gevolg}{gevolgen}]%
+    {gevolg}{Gevolg}{boxstyle,breakable}{gev}
+
+\newtcbtheorem[no counter,crefname={bewijs}{bewijzen}]%
+    {bewijs}{Bewijs}{plainstyle,breakable,top=0mm}{bew}
+
+\newtcbtheorem[use counter from=definitie,crefname={voorbeeld}{voorbeelden}]%
+    {voorbeeld}{Voorbeeld}{plainstylebold,breakable}{vb}
+
+\newtcbtheorem[use counter from=definitie,crefname={toepassing}{toepassingen}]%
+    {toepassing}{Toepassing}{plainstylebold,breakable}{tp}
+
+\newtcbtheorem[auto counter,number within=section,crefname={oefening}{oefeningen}]%
+    {oefening}{Oefening}{plainstylebold,breakable}{oef}
+
+\AtEndEnvironment{bewijs}{\qed}
+\AtEndEnvironment{voorbeeld}{\null\hfill$\diamond$}
+
+
+\newtcolorbox{oplossing}{plainstyle,title=Oplossing,top=0mm}
+\newtcolorbox{antwoord}{plainstyle,title=Antwoord,top=0mm}
+\newtcolorbox{uitwerking}{plainstyle,title=Uitwerking,top=0mm}
+\newtcolorbox{opmerking}{plainstyle,title=Opmerking}
+\newtcolorbox{hint}{plainstyle,title=Hint,top=0mm,fonttitle=\itshape,fontupper=\itshape,top=0mm}
+\newtcolorbox{herinner}{plainstyle,title={Herinner}}
+\newtcolorbox{intermezzo}{plainstyle,title=Intermezzo}
+\newtcolorbox{notatie}{plainstyle,title=Notatie}
+\newtcolorbox{conventie}{plainstyle,title=Conventie}
+\newtcolorbox{interpretatie}{plainstyle,title=Interpretatie}
+\newtcolorbox[auto counter]{vraag}{plainstyle,title={Vraag~\thetcbcounter}}
+
+
+
+\author{Junot Van Dijck}

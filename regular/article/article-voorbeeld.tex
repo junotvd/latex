@@ -1,0 +1,154 @@
+\documentclass[
+    10pt,
+    a4paper,
+    twoside,
+]{article}
+
+
+\input{../preamble-nl-article.tex}
+\addbibresource{ref.bib}
+
+\title{Article}
+
+
+\begin{document}
+
+\maketitle
+
+\section{Meervoudige integralen}
+
+In het boek:~\cite[H15.1 - H15.6]{cursus}
+
+\begin{hint}{}
+    Bij dubbele en meervoudige integralen is het nuttig om een tekening te maken van het domein waarover je integreert.
+    Dit kan helpen om een geschikt coördinatensysteem te kiezen en de integratiegrenzen te bepalen.
+\end{hint}
+
+
+\subsection*{Dubbele integralen}
+
+\begin{oefening}{}{}
+    Bereken de dubbele integraal
+    \[
+        \iint_S (x-3y)\,dA
+    \] waarbij $S$ de driehoek is met hoekpunten $(0,0)$, $(1,0)$ en $(0,c)$ waarbij $c \in \mathbb{R}$.
+\end{oefening}
+
+\begin{oefening}{}{}
+    Bereken
+    \[
+        \iint_D (3-2x)\, dA
+    \] waarbij $D$ de helft is van de schijf $x^2 + y^2 = 4$ met $y \geq 0$.
+    \begin{hint}{}
+        Gebruik symmetrie om het rekenwerk te beperken.
+    \end{hint}
+\end{oefening}
+
+
+\subsection*{Oneigenlijke integralen}
+
+\begin{oefening}{}{}
+    Convergeert de oneigenlijke integraal
+    \[
+        \iint_K \frac{dA}{(1+x^2)(1+y^2)}
+    \] waarbij $K$ het eerste kwadrant in het $xy$-vlak is?
+    Zo ja, bepaal dan ook de waarde waarnaar deze integraal convergeert.
+\end{oefening}
+
+
+\subsection*{Transformatie van coördinaten}
+
+\begin{oefening}{}{}
+    Beschouw de verzameling $D = \{(x,y) \in \mathbb{R}^2 \mid x \geq 0, y \geq 0, 1 \leq \sqrt{x^2 + y^2} \leq 3\}$.
+    Maak een schets van $D$ en bepaal vervolgens de integraal
+    \[
+        \iint_D e^{x^2+y^2}\, dA.
+    \]
+\end{oefening}
+
+
+\subsection*{Drievoudige integralen en transformatie van coördinaten in drie dimensies}
+\begin{oefening}{}{}
+    Bereken de drievoudige integraal
+    \[
+        \iiint_R yz^2 e^{-xyz}\, dV
+    \] waarbij $R$ de kubus $0 \leq x, y, z \leq 1$ is.
+\end{oefening}
+
+\begin{oefening}{}{}
+    Bepaal het volume dat ingesloten wordt tussen de kegel $z = \sqrt{x^2 + y^2}$ en de sfeer $x^2 + y^2 + z^2 = a^2$ met $a \in \mathbb{R}$.
+    \begin{hint}{}
+        In een goed gekozen coördinatensysteem kun je dit vinden met minimaal rekenwerk.
+    \end{hint}
+\end{oefening}
+
+
+\section{Riemann-integraal van twee veranderlijken}
+
+Zij $\displaystyle f\colon D \subset \mathbb{R}^2 \to \mathbb{R}\colon (x,y) \mapsto f(x,y)$ begrensd en positief.
+We kunnen het volume onder het oppervlak van $f$ benaderen door volumes van balken op te tellen.
+\begin{itemize}
+    \item Deel $D$ op in gebieden $D_1, D_2, \ldots, D_n$ met $P = \{D_1, \ldots, D_n\}$ een \emph{partitie} van $D$.
+    \item Kies $\vec{p}_k \in D_k \subset D$ en we noteren de oppervlakte van $D_k$ als $\Delta S_k$.
+        Dan is \[
+            \sum_{k=1}^{n} f(\vec{p}_k)\Delta S_k
+        \] een Riemann-som van $f$ bij partitie $P$.
+\end{itemize}
+\begin{opmerking}{}
+    We kunnen de partitie zelf kiezen, er zijn oneindig veel Riemannsommen.
+\end{opmerking}
+
+We kunnen het volume beter afschatten met behulp van onder- en bovensommen:
+\begin{align*}
+    m_k = \inf\{f(\vec{x}) \mid \vec{x} \in D_k\} \implies O_D(f,P) = \sum_{k=1}^{n} m_k \Delta S_k \\
+    M_k = \sup\{f(\vec{x}) \mid \vec{x} \in D_k\} \implies B_D(f,P) = \sum_{k=1}^{n} M_k \Delta S_k
+\end{align*}
+\[
+    O_D(f,P) \leq \sum_{k=1}^{n} f(\vec{p}_k) \Delta S_k \leq B_D(f,P).
+\]
+Stel dat er precies één getal $V$ is zo dat voor elke partitie $P$ geldt dat
+\[
+    O_D(f,P) \leq V \leq B_D(f,P),
+\] dan is $f(x,y)$ \textbf{Riemann-integreerbaar} over $D$.
+
+Bekeken over alle partities:
+\begin{itemize}
+    \item $\{O_D(f,P) \mid P\, \text{partitie van}\, D\}$ is naar boven begrensd.
+        Dan is het bezit van een supremum gelijk aan de \textbf{onderintegraal} $O_D(f)$.
+    \item $\{B_D(f,P) \mid P\, \text{partitie van}\, D\}$ is naar onder begrensd.
+        Dan is het bezit van een infimum gelijk aan de \textbf{bovenintegraal} $B_D(f)$.
+\end{itemize}
+Uit de definitie volgt algemeen
+\[
+    O_D(f) \leq B_D(f).
+\]
+
+\begin{definitie}{}{riemann-integreerbaar}
+    $f(x,y)$ is \textbf{Riemann-integreerbaar} over $D$ indien
+    \[
+        O_D(f) = B_D(f).
+    \]
+    We noteren dit met $\displaystyle \iint_D f(x,y)\,dx\,dy$.
+\end{definitie}
+
+\begin{opmerking}{}
+    In het boek gebruiken ze nog een andere formulering met $\epsilon$. Zie \Cref{def:double-integral}.
+\end{opmerking}
+
+\begin{definitie}{\cite[835]{cursus}}{double-integral}
+    Een functie $f$ is \textbf{integreerbaar} over de rechthoek $D$ en heeft als \textbf{dubbele integraal}
+    \[
+        I = \iint_D f(x,y)\,dA
+    \]
+    als voor elk positief getal $\epsilon$ er een getal $\delta$ bestaat, zodat voor elke partitie $P$ van $D$ met $\lVert P\rVert < \delta$, en voor elke keuze van punten $(x_{ij}^*, y_{ij}^*)$ in de deelrechthoeken van $P$, geldt dat:
+    \[
+        \lvert R(f,P) - I\rvert < \epsilon,
+    \]
+    waarbij de Riemann-som gedefinieerd is als:
+    \[
+        R(f,P) = \sum_{i=1}^m \sum_{j=1}^n f(x_{ij}^*, y_{ij}^*) \Delta A_{ij}.
+    \]
+\end{definitie}
+
+\printbibliography
+\end{document}
