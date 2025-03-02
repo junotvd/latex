@@ -2,7 +2,7 @@ name: tex_to_pdf
 
 on:
   push:
-    braches: [ "main" ]
+    braches: []
 
 jobs:
   build:
