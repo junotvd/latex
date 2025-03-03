@@ -77,12 +77,16 @@
 
 
 \pagestyle{scrheadings}
-\chead{\MakeUppercase{\sffamily\textls\headmark}}
-\cfoot{\pagemark}
-\ihead{}
-\ohead{}
-\ofoot{}
-
+\lehead{\thepage}
+\rohead{\thepage}
+\rehead{\MakeUppercase{\sffamily\textls\leftmark}}
+\lohead{\MakeUppercase{\sffamily\textls\rightmark}}
+\lofoot{}
+\refoot{}
+\lefoot{}
+\rofoot{}
+\chead{}
+\cfoot{}
 
 \usepackage{xifthen}
 \makeatletter
