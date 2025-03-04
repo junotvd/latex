@@ -1,6 +1,17 @@
 ![Algemene Natuurkunde II](https://raw.githubusercontent.com/junotvd/latex/master/.github/images/algemene-natuurkunde-ii.png)
 ![Analyse I](https://raw.githubusercontent.com/junotvd/latex/master/.github/images/analyse-i.png)
 
+```tex
+\documentclass[
+    fontsize=10pt,
+    twoside=semi,
+    usegeometry,
+    autoenlargeheadfoot=false,
+    toc=bibliography,
+    open=any
+]{scrbook}
+```
+
 ### Theorems (dutch) using TColorBox
 ```tex
 \begin{THEOREM}{TITLE}{REFNAME}
