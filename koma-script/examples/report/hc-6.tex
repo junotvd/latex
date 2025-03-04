@@ -1,0 +1,159 @@
+\setcounter{chapter}{5}
+\chapter{Direct Current Circuits}
+In the book:~\cite[Ch. 26]{giancoli}
+
+\lesson{Lesson Module}{6}{Mon, Feb 24, 2025}
+
+The battery is a source of \textbf{electromotive force (emf)}.
+The emf $\varepsilon$ of a battery is the maximum potential difference that the battery can generate across its terminals.
+
+\begin{remark}{}
+    The emf provides energy, so it is not a force in the literal sense.
+\end{remark}
+
+The battery is the energy source for an electric circuit.
+This allows charges to gain higher potential energy within the battery.
+
+We assume that wires have no electrical resistance.
+The positive terminal of the battery is at a higher potential than the negative terminal.
+
+\begin{remark}{}
+    However, the battery also has an \textbf{internal resistance}!
+    If the internal resistance were zero, the delivered voltage would be equal to the emf.
+    In a real battery, there is always some internal resistance $r$.
+\end{remark}
+
+The voltage across the terminals is
+\[
+    V_{\text{ab}} = \varepsilon - Ir.
+\]
+On the other hand, $V_{\text{ab}} = IR$ because the potential at $d$ must be equal to the potential at $a$.
+
+The actual potential difference across the terminals is called the \textbf{terminal voltage} and depends on the current flowing in the circuit.
+
+The voltage across the battery’s terminals is equal to the voltage across the external resistor.
+This resistance is called the \textbf{load resistance} (denoted as $R$ in DC circuits).
+
+
+\section{Resistors in Series}
+
+The potential difference $V$ is distributed among the different resistors, and the total potential differences sum up due to energy conservation:
+\[
+    V = IR_1 + IR_2 = I(R_1 + R_2).
+\]
+For $n$ resistors in series, we have:
+\[
+    R_{\text{eq}} = R_1 + R_2 + \cdots + R_n.
+\]
+
+
+\section{Resistors in Parallel}
+
+The potential difference across all resistors is the same because they are directly connected to the battery terminals.
+\[
+    I = I_1 + I_2 = \frac{V}{R_1} + \frac{V}{R_2} = V\left(\frac{1}{R_1}+\frac{1}{R_2}\right) = \frac{V}{R_{\text{eq}}}
+\]
+\[
+    \implies R_{\text{eq}} = {\left(\frac{1}{R_1}+\frac{1}{R_2}\right)}^{-1} = \frac{R_1R_2}{R_1 + R_2}.
+\]
+For $n$ resistors, we obtain:
+\[
+    \frac{1}{R_{\text{eq}}} = \frac{1}{R_1} + \frac{1}{R_2} + \cdots + \frac{1}{R_n}.
+\]
+
+
+\section{Kirchhoff’s Rules}
+
+For certain branched resistor circuits, it is not possible to reduce the resistances to a single equivalent resistance using only series and/or parallel combinations.
+Kirchhoff’s rules, named after Gustav Kirchhoff (1824–1887), can be used to analyze such circuits.
+
+\begin{theorem}{Kirchhoff’s First Rule}{kirchhoff1}
+    The sum of currents entering a junction must be equal to the sum of currents leaving the junction:
+    \[
+        \sum I_{\text{in}} = \sum I_{\text{out}}.
+    \]
+\end{theorem}
+
+\begin{theorem}{Kirchhoff’s Second Rule}{kirchhoff2}
+    The sum of the potential differences around any closed loop in a circuit must be zero:
+    \[
+        \sum_{\text{closed loop}} \Delta V = 0.
+    \]
+\end{theorem}
+
+
+\subsection{Charging an RC Circuit}
+
+Applying \Cref{thm:kirchhoff2} to a closed loop gives:
+\[
+    \varepsilon - \frac{q(t)}{C} - I(t)R = 0 \implies \varepsilon - \frac{q(t)}{C} - R \frac{dq(t)}{dt} = 0.
+\]
+This is a differential equation for $q(t)$.
+We solve it using separation of variables:
+\[
+    \frac{C\varepsilon}{RC} - \frac{q(t)}{RC} - \frac{dq(t)}{dt} = 0 \implies \frac{dq(t)}{C\varepsilon -q(t)} = \frac{dt}{RC}.
+\]
+Integrating both sides between $t=0$ and $t$ where the capacitor charge reaches $q$:
+\[
+    \int_0^q \frac{dq}{q-C\varepsilon} = -\frac{1}{RC}\int_0^t dt \implies \ln\left(\frac{q-C\varepsilon}{-C\varepsilon}\right) = -\frac{t}{RC}.
+\]
+Since for $t \to \infty$, the capacitor charge approaches $Q = C\varepsilon$, the time-dependent charge is:
+\[
+    q(t) = C\varepsilon\left(1-e^{-\frac{t}{RC}}\right) = Q\left(1-e^{-\frac{t}{RC}}\right).
+\]
+Differentiating with respect to time gives:
+\[
+    I(t) = \frac{\varepsilon}{R}e^{-\frac{t}{RC}} = I(t=0)e^{-\frac{t}{RC}}.
+\]
+We define the \textbf{time constant} $\tau$ for the RC circuit as:
+\[
+    \tau = RC.
+\]
+$\tau$ corresponds to the time required for the charge to increase from zero to 63.2% of its maximum value:
+\[
+    Q = C\varepsilon(1-\frac{1}{e}).
+\]
+During this time, the current decreases by a factor of $\frac{1}{e}$, reducing to 36.8% of its initial value.
+
+The total energy supplied by the emf source during charging is:
+\[
+    U_{\text{emf}} = \int_0^{U_{\text{emf}}} dU = \int_0^Q \varepsilon\,dq = Q\varepsilon = C\varepsilon^2.
+\]
+From~\cite[Ch. 24]{giancoli}, the energy stored in the capacitor is:
+\[
+    U_C = \frac{C\varepsilon^2}{2}.
+\]
+This is because some energy is dissipated as heat in the resistor:
+\[
+    U_R = \frac{C\varepsilon^2}{2}.
+\]
+Thus, the total energy provided by the emf source is equally distributed between the resistor and the capacitor:
+\[
+    U_{\text{emf}} = U_C + U_R.
+\]
+
+
+\subsection{Discharging an RC Circuit}
+
+Discharging occurs with the same time constant $\tau = RC$ as charging.
+Applying \Cref{thm:kirchhoff2} to a closed loop leads to:
+\[
+    \frac{q(t)}{C} - I(t)R = 0, \quad \text{where} \quad I(t) = -\frac{dq(t)}{dt}.
+\]
+\[
+    -R \frac{dq(t)}{dt} = \frac{q(t)}{C} \implies -\frac{dq(t)}{q(t)} = \frac{dt}{RC}.
+\]
+Integrating from $t=0$ to $t$, where charge decreases from $Q$ to $q(t)$:
+\[
+    \int_Q^{q(t)}\frac{dq}{q} = -\int_0^t \frac{dt}{RC} \implies \ln\left(\frac{q}{Q}\right) = -\frac{t}{RC}.
+\]
+Thus, the charge decays as:
+\[
+    q(t) = Qe^{-\frac{t}{RC}}.
+\]
+This results in the current:
+\[
+    I(t) = I(t=0)e^{-\frac{t}{RC}}.
+\]
+
+The energy originally stored in the capacitor is dissipated as heat in the resistor.

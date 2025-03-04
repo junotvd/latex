@@ -1,0 +1,43 @@
+% ------------
+% INSTELLINGEN
+% ------------
+
+\documentclass[
+    fontsize=10pt,
+    twoside=semi,
+    usegeometry,
+    autoenlargeheadfoot=false,
+    toc=bibliography,
+    open=any,
+]{scrbook}
+
+\input{../../preamble-en.tex}
+\addbibresource{ref.bib}
+
+
+% --------
+% DOCUMENT
+% --------
+
+\title{KOMA-Script Book}
+\subtitle{Example}
+\titlehead{English}
+
+\date{Date}
+
+\begin{document}
+    \frontmatter
+
+    \maketitle
+    \tableofcontents
+    \chapter{Introduction}
+    This is the introduction of the document, this chapter is not numbered.
+    Note that the page numbering is in Roman numerals.
+
+    \mainmatter
+    \input{hc-6.tex}
+
+    \backmatter
+    \printbibliography
+
+\end{document}

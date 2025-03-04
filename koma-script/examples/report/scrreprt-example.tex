@@ -1,0 +1,43 @@
+% ------------
+% INSTELLINGEN
+% ------------
+
+\documentclass[
+    fontsize=10pt,
+    twoside=semi,
+    usegeometry,
+    autoenlargeheadfoot=false,
+    toc=bibliography,
+    open=any
+]{scrreprt}
+
+\input{../../preamble-en.tex}
+\addbibresource{ref.bib}
+
+
+% --------
+% DOCUMENT
+% --------
+
+\title{KOMA-Script Report}
+\subtitle{Example}
+\titlehead{English}
+
+\date{Date}
+
+\begin{document}
+
+    \maketitle
+    \pagenumbering{roman}
+    \tableofcontents
+
+    \chapter*{Introduction}
+    This is the introduction of the document, this chapter is not numbered.
+    \clearpage
+
+    \pagenumbering{arabic}
+    \input{hc-6.tex}
+
+    \printbibliography
+
+\end{document}

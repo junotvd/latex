@@ -1,0 +1,224 @@
+% \usepackage[T1]{fontenc}
+% \usepackage{PTSerif}
+\usepackage{fontspec}
+% \usepackage[bitstream-charter]{mathdesign}
+
+\usepackage[english]{babel}
+
+\usepackage{geometry}
+\geometry{%
+    paperwidth=210mm,
+	paperheight=297mm,
+    top=72pt,
+    marginparsep=20pt,
+    marginparwidth=60pt,
+    head=24pt,
+    textheight=690pt,
+    footskip=40pt,
+}
+
+
+\usepackage{float}
+\usepackage{ragged2e}
+\usepackage{needspace}
+\usepackage{xspace}
+
+\usepackage{csquotes}
+\usepackage{parskip}
+
+\usepackage{tikz}
+\usepackage{graphicx}
+
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{enumitem}
+
+\usepackage{amsmath, amsfonts, mathtools, amsthm, amssymb}
+\usepackage{bm, cancel}
+
+\usepackage{microtype} %load after amsthm
+
+% \usepackage{showframe}
+% \usepackage{layout}
+\usepackage{lipsum}
+
+\usepackage[
+    sorting = nyt,
+    style = alphabetic
+]{biblatex}
+
+\usepackage[automark]{scrlayer-scrpage}
+\usepackage{scrlayer-notecolumn}
+\setkomafont{notecolumn.marginpar}{\footnotesize}
+
+
+\usepackage[
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=magenta,
+    citecolor=black,
+    urlcolor=cyan,
+    pdfpagemode=FullScreen,
+]{hyperref}
+
+\usepackage[english]{cleveref}
+\crefname{equation}{}{}
+
+
+\renewcommand\geq{\geqslant}
+\renewcommand\leq{\leqslant}
+
+\let\epsilon\varepsilon
+% \let\phi\varphi
+
+\pagestyle{scrheadings}
+\lehead{\thepage}
+\rohead{\thepage}
+\rehead{\MakeUppercase{\sffamily\textls\leftmark}}
+\lohead{\MakeUppercase{\sffamily\textls\rightmark}}
+\lofoot{}
+\refoot{}
+\lefoot{}
+\rofoot{}
+\chead{}
+\cfoot{}
+
+\usepackage{xifthen}
+\makeatletter
+\def\@les{}%
+\newcommand{\lesson}[3]{%
+    \def\@lesson{#1 #2}%
+    {\def\@lesson{#1 #2}}
+    \subsection*{\@lesson}
+    \makenote{\small\textsf{\mbox{#3}}}
+}
+\makeatother
+
+\usepackage{import}
+\usepackage{pdfpages}
+\usepackage{transparent}
+\newcommand{\incfig}[2][1]{%
+    \def\svgwidth{#1\columnwidth}
+    \import{./figures/}{#2.pdf_tex}
+}
+% \pdfsuppreswarningpagegroup=1
+
+
+\usepackage[most]{tcolorbox}
+
+\tcbset{%
+    parbox = false,
+}
+\tcbset{%
+    boxstyle/.style = {%
+        parbox=false,
+        enhanced,
+        sharp corners,
+        colframe = black,
+        coltitle = black,
+        colback = white,
+        fonttitle = \sffamily\bfseries,
+        after title = {.},
+        description font = \mdseries,
+        attach boxed title to top left = {xshift=2mm, yshift=-2.5mm},
+        separator sign none,
+        description delimiters parenthesis,
+        boxed title style = {%
+            colframe = white,
+            colback = white,
+            sharp corners,
+        },
+        boxrule = 0.5pt,
+    },
+    proofstyle/.style = {%
+        parbox=false,
+        enhanced,
+        blanker,
+        breakable,
+        coltitle = black,
+        fonttitle = \sffamily\bfseries,
+        description font = \mdseries,
+        attach title to upper = {.\;},
+        left = 5mm,
+        top = 1mm,
+        borderline west = {0.5pt}{0pt}{black},
+        description delimiters parenthesis,
+        separator sign none,
+    },
+    plainstyle/.style = {%
+        parbox=false,
+        enhanced,
+        sharp corners,
+        boxrule = 0pt,
+        boxsep = 0mm,
+        left = 0mm,
+        breakable,
+        attach title to upper = {.\:},
+        % after title = {\;},
+        description font = \mdseries,
+        coltitle = black,
+        colback = white,
+        colframe = white,
+        fonttitle = \sffamily\bfseries,
+        description delimiters parenthesis,
+        separator sign none,
+    },
+    wrongstyle/.style = {%
+        colback = red,
+    },
+}
+
+
+\newtcbtheorem[auto counter,number within=chapter,crefname={definition}{definitions}]%
+    {definition}{Definition}{boxstyle}{def}
+
+\newtcbtheorem[use counter from=definition,crefname={axiom}{axioms}]%
+    {axiom}{Axiom}{boxstyle}{axi}
+
+\newtcbtheorem[use counter from=definition,crefname={property}{properties}]%
+    {property}{Property}{plainstyle,breakable}{prp}
+
+\newtcbtheorem[use counter from=definition,crefname={lemma}{lemmas}]%
+    {lemma}{Lemma}{boxstyle,fontupper=\itshape}{lem}
+
+\newtcbtheorem[use counter from=definition,crefname={theorem}{theorems}]%
+    {theorem}{Theorem}{boxstyle,fontupper=\itshape}{thm}
+
+\newtcbtheorem[use counter from=definition]%
+    {statement}{Statement}{boxstyle,fontupper=\itshape}{stmt}
+
+\newtcbtheorem[use counter from=definition,crefname={proposition}{propositions}]%
+    {proposition}{Proposition}{boxstyle,fontupper=\itshape}{prop}
+
+\newtcbtheorem[use counter from=definition,crefname={corollary}{corollaries}]%
+    {corollary}{Corollary}{boxstyle,breakable}{cor}
+
+\newtcbtheorem[no counter,crefname={proof}{proofs}]%
+    {proof}{Proof}{plainstyle,breakable,top=0mm}{prf}
+
+\newtcbtheorem[use counter from=definition,crefname={example}{examples}]%
+    {example}{Example}{plainstyle,breakable}{ex}
+
+\newtcbtheorem[use counter from=definition,crefname={application}{applications}]%
+    {application}{Application}{plainstyle,breakable}{app}
+
+\newtcbtheorem[auto counter,number within=chapter,crefname={exercise}{exercises}]%
+    {exercise}{Exercise}{plainstyle,breakable}{exer}
+
+\AtEndEnvironment{proof}{\qed}
+\AtEndEnvironment{example}{\null\hfill$\diamond$}
+
+\newtcolorbox{solution}{plainstyle,title=Solution,top=0mm}
+\newtcolorbox{answer}{plainstyle,title=Answer,top=0mm}
+\newtcolorbox{elaboration}{plainstyle,title=Elaboration,top=0mm}
+\newtcolorbox{remark}{plainstyle,title=Remark}
+\newtcolorbox{hint}{plainstyle,title=Hint,top=0mm,fonttitle=\itshape,fontupper=\itshape,top=0mm}
+\newtcolorbox{reminder}{plainstyle,title={Reminder}}
+\newtcolorbox{intermezzo}{plainstyle,title=Intermezzo}
+\newtcolorbox{notation}{plainstyle,title=Notation}
+\newtcolorbox{convention}{plainstyle,title=Convention}
+\newtcolorbox{interpretation}{plainstyle,title=Interpretation}
+\newtcolorbox[auto counter]{question}{plainstyle,title={Question~\thetcbcounter}}
+
+
+\author{Junot Van Dijck}
