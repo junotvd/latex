@@ -1,0 +1,165 @@
+\setcounter{chapter}{5}
+\chapter{Gelijkstroomketens}
+In het boek:~\cite[H26]{giancoli}
+
+\les{Lesmodule}{6}{ma 24 feb 2025}
+
+De batterij is een bron van \textbf{elektromotorische kracht (emk)}.
+De emk $\varepsilon$ van een batterij is het maximale potentiaalverschil dat de batterij kan opwekken via de polen.
+
+\begin{opmerking}{}
+    De emk levert energie, het gaat dus niet om een kracht in de letterlijke betekenis
+\end{opmerking}
+
+De batterij is de bron van energie voor een elektrish circuit.
+Hierdoor verkrijgen ladingen een hogere potentiële energie in de batterij.
+
+We nemen aan dat draden geen elektrische weerstand hebben.
+De positieve pool van de batterij bevindt zich op een hogere potentiaal dan de negatieve pool.
+\begin{opmerking}{}
+    De batterij heeft echter ook een \textbf{inwendige weerstand}!
+    Als de inwendige weerstand gelijk aan nul zou zijn, dan zou de geleverde spanning gelijk zijn aan de emk.
+    In een echte batterij is er steeds een inwendige weerstand $r$.
+\end{opmerking}
+
+De spanning over de polen is
+\[
+    V_{\text{ab}} = \varepsilon - Ir.
+\]
+Anderzijds is $V_{\text{ab}} = IR$ want de potentiaal in $d$ moet gelijk zijn aan de potentiaal in $a$.
+
+Het werkelijke potentiaalverschil tussen de polen is de \textbf{klemspanning} en hangt af van de stroom die in het circuit vloeit.
+
+De spanning over de polen van de batterij is gelijk aan de spanning over de externe weerstand.
+Deze spanning is de \textbf{belastingsweerstand} (in gelijkstroomketens aangeduid met $R$).
+
+
+\section{Weerstanden in serie}
+
+Het potentiaalverschil $V$ wordt verdeeld over de verschillende weerstanden en de potentiaalverschillen tellen we op wegens het behoud van energie:
+\[
+    V = IR_1 + IR_2 = I(R_1 + R_2).
+\]
+Voor $n$ weerstanden in serie geldt
+\[
+    R_{\text{eq}} = R_1 + R_2 + \cdots + R_n.
+\]
+
+
+\section{Weerstanden in parallel}
+
+Het potentiaalverschil over alle weerstanden is hetzelfde omdat ze allen direct aan de polen van de batterij worden gekoppeld.
+\[
+    I = I_1 + I_2 = \frac{V}{R_1} + \frac{V}{R_2} = V\left(\frac{1}{R_1}+\frac{1}{R_2}\right) = \frac{V}{R_{\text{eq}}}
+\]
+\[
+    \implies R_{\text{eq}} = {\left(\frac{1}{R_1}+\frac{1}{R_2}\right)}^{-1} = \frac{R_1R_2}{R_1 + R_2}.
+\]
+Voor $n$ weerstanden krijgen we dan
+\[
+    \frac{1}{R_{\text{eq}}} = \frac{1}{R_1} + \frac{1}{R_2} + \cdots + \frac{1}{R_n}.
+\]
+
+
+\section{De regels van Kirchhoff}
+
+Voor bepaalde, vertakte circuits met weerstanden is het niet mogelijk om deze weerstanden te reduceren tot één enkele equivalente weerstand door te steunen op serie- en/of parallelschakelingen.
+De regels van Kirchhoff, naar Gustav Kirchhoff, 1824 – 1887, kunnen dan gebruikt worden om toch tot een oplossing te komen.
+
+\begin{stelling}{Eerste regel van Kirchhoff}{kicrchhoff1}
+    De som van stromen die een vertakking binnenkomen moet gelijk zijn aan de som van de stromen die de vertakking verlaten:
+    \[
+        \sum I_{\text{in}} = \sum I_{\text{out}}.
+    \]
+\end{stelling}
+
+\begin{stelling}{Tweede regel van Kirchhoff}{kirchhoff2}
+    De som van de potentiaalverschillen over de elementen die deel uitmaken van een gesloten lus moet nul zijn:
+    \[
+        \sum_{\text{gesloten lus}} \Delta V = 0.
+    \]
+\end{stelling}
+
+
+\subsection{Opladen van een RC-keten}
+
+\Cref{stel:kirchhoff2} voor een gesloten lus geeft
+\[
+    \varepsilon - \frac{q(t)}{C} - I(t)R = 0 \implies \varepsilon - \frac{q(t)}{C} - R \frac{dq(t)}{dt} = 0.
+\]
+Dit is een differentiaalvergelijking voor $q(t)$.
+We lossen op door scheiden van de veranderlijke:
+\[
+    \frac{C\varepsilon}{RC} - \frac{q(t)}{RC} - \frac{dq(t)}{dt} = 0 \implies \frac{dq(t)}{C\varepsilon -q(t)} = \frac{dt}{RC}.
+\]
+Integreer nu beiden leden tussen $t=0$ en $t$ waarop de condensator de waarde $q$ bereikt:
+\[
+    \int_0^q \frac{dq}{q-C\varepsilon} = -\frac{1}{RC}\int_0^t dt \implies \ln\left(\frac{q-C\varepsilon}{-C\varepsilon}\right) = -\frac{t}{RC}.
+\]
+De oplossing moet voldoen aan dat voor $t \to \infty$ de condensator gelijk is aan $Q = C\varepsilon$.
+Dan is de tijdsafhankelijkheid van de lading op de condensator
+\[
+    q(t) = C\varepsilon\left(1-e^{-\frac{t}{RC}}\right) = Q\left(1-e^{-\frac{t}{RC}}\right).
+\]
+Afleiden naar de tijd levert
+\[
+    I(t) = \frac{\varepsilon}{R}e^{-\frac{t}{RC}} = I(t=0)e^{-\frac{t}{RC}}.
+\]
+We definiëren de \textbf{tijdsconstante} $\tau$ voor de RC-kring als
+\[
+    \tau = RC.
+\]
+$\tau$ komt overeen met de tijd die nodig is om de lading te verhogen van nul tot 63.2\% van de maximale lading, dus tot
+\[
+    Q = C\varepsilon(1-\frac{1}{e}).
+\]
+Gedurende deze tijd is de stroom gereduceerd met de factor $\frac{1}{e}$, dit is tot 36.8\% van zijn initiële waarde.
+
+De hoeveelheid energie die de emk-bron heeft geleverd tijdens het opladen is gelijk aan
+\[
+    U_{\text{emk}} = \int_0^{U_{\text{emk}}} dU = \int_0^Q \varepsilon\,dq = \varepsilon\int_0^Q dq = Q\varepsilon = C\varepsilon^2.
+\]
+Uit~\cite[H24]{giancoli} kennen we de opgeslagen energie in de condensator:
+\[
+    U_C = \frac{C\varepsilon^2}{2}.
+\]
+Dit is omdat er ook energie werd omgezet in de weerstand:
+\begin{align*}
+    \int_0^{U_R}dU &= \int_0^\infty P\,dt = \int_0^\infty I^2R\,dt = \int_0^\circ \frac{\varepsilon^2}{R^2}Re^{-\frac{2t}{RC}}\,dt \\
+                   &= \frac{\varepsilon^2}{R}\int_0^\infty e^{-\frac{2t}{RC}}\,dt = \frac{\varepsilon^2}{R}\frac{RC}{2}\left(\left.-e^{-\frac{2t}{RC}}\right\vert_0^\infty\right) \implies U_R = \frac{C\varepsilon^2}{2}
+\end{align*}
+De energie geleverd door de emk werd gelijk verdeeld over de weerstand en de condensator:
+\[
+    U_{\text{emk}} = U_C + U_R.
+\]
+
+
+\subsection{Ontladen van een RC-keten}
+
+Het ontladen gebeurt met dezelfde $\tau = RC$ als bij het opladen.
+Het toepassen van \Cref{stel:kirchhoff2} voor een gesloten lus leidt tot
+\begin{align*}
+    &\frac{q(t)}{C} - I(t)R = 0 \quad \text{met} \quad I(t) = -\frac{dq(t)}{dt} \\
+    &\implies -R \frac{dq(t)}{dt} = \frac{q(t)}{C} \implies -\frac{dq(t)}{q(t)} = \frac{dt}{RC}.
+\end{align*}
+
+Integreer tussen $t=0$ en $t$.
+In dit tijdsinterval vermindert de lading van $Q$ tot $q(t)$:
+\[
+    \int_Q^{q(t)}\frac{dq}{q} = -\int_0^t \frac{dt}{RC} \implies \ln\left(\frac{q}{Q}\right) = -\frac{t}{RC}.
+\]
+Voor de tijdsafhankelijheid van de lading krijgen we
+\[
+    q(t) = Qe^{-\frac{t}{RC}}.
+\]
+Dit levert voor de tijdsafhankelijkheid van de stroom
+\[
+    I(t) = -\frac{dq(t)}{dt} = \frac{Q}{RC}e^{-\frac{t}{RC}} = I(t=0)e^{-\frac{t}{RC}}.
+\]
+Bij $t=\tau=RC$ is de lading gereduceerd tot 0.368$ Q_{\text{max}}$, de condensator heeft dan 63.2\% van zijn initële lading verloren.
+De energiebalans van de RC-keten geeft dan
+\begin{align*}
+    \int_0^{U_R}dU = \int_0^\infty P\,dt &= \int_0^\infty I^2R\, dt = \frac{Q^2R}{R^2C^2}\int_0^\infty e^{-\frac{2t}{RC}}\,dt = \frac{Q^2}{2C} \\
+                   &\implies U_R = \frac{Q^2}{2C}.
+\end{align*}
+De energie die opgeslagen was in de condensator wordt bij het ontladen door de weerstand omgezet in Joule'se warmte.
