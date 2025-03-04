@@ -12,7 +12,7 @@
 ]{scrbook}
 
 \input{../../preamble.tex}
-
+\addbibresource{ref.bib}
 
 
 % --------
@@ -35,31 +35,9 @@
     Merk op dat de paginanummering in Romeinse cijfers is.
 
     \mainmatter
-    \chapter{Eerste hoofdstuk}
-    \lipsum[1]
-    \begin{stelling}{}{i}
-        Dit is een stelling met volgende vergelijking:
-        \begin{equation}\label{eq:i}
-            f\colon \mathbb{R} \to \mathbb{R}\colon x \mapsto f(x) = \int_{a}^{b} \frac{d^2y}{dx^2}\,dx.
-        \end{equation}
-  \end{stelling}
-  We kunnen verwijzen naar \cref{eq:i} in \Cref{stel:i}.
-  \begin{bewijs}{}{}
-      Dit is het bewijs van \Cref{stel:i}.
-  \end{bewijs}
-  \begin{gevolg}{}{i}
-      Dit is een gevolg van \Cref{stel:i}.
-  \end{gevolg}
-  \begin{voorbeeld}{}{i}
-      We kunnen \Cref{gev:i} aantonen met dit voorbeeld.
-  \end{voorbeeld}
+    \input{hc-6.tex}
 
-  \paragraph{Paragraaf}
-  \lipsum[2]
-  \les{Hoorcollege}{4}{today}
-  \lipsum[3]
-
-    \chapter{Tweede hoofdstuk}
-    \lipsum
+    \backmatter
+    \printbibliography
 
 \end{document}
