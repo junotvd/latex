@@ -1,0 +1,35 @@
+\renewcommand\geq{\geqslant}
+\renewcommand\leq{\leqslant}
+
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\bld}{bld}
+
+\let\epsilon\varepsilon
+% \let\phi\varphi
+\let\preceq\preccurlyeq
+\let\succeq\succcurlyeq
+
+\usepackage{xifthen}
+\makeatletter
+\def\@les{}%
+\newcommand{\les}[3]{%
+    \def\@les{#1 #2}%
+    {\def\@les{#1 #2}}
+    \subsection*{\@les}
+    % \marginpar{\small\textsf{\mbox{#3}}}
+    \makenote{\small\textsf{\mbox{#3}}}
+}
+\makeatother
+
+
+\usepackage{import}
+\usepackage{pdfpages}
+\usepackage{transparent}
+\newcommand{\incfig}[2][1]{%
+    \def\svgwidth{#1\columnwidth}
+    \import{./figures/}{#2.pdf_tex}
+}
+% \pdfsuppreswarningpagegroup=1
