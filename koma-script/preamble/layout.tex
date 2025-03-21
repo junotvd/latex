@@ -1,0 +1,32 @@
+% \usepackage{showframe}
+% \usepackage{layout}
+
+
+\usepackage{geometry}
+\geometry{%
+    paperwidth=210mm,
+	paperheight=297mm,
+    top=72pt,
+    marginparsep=20pt,
+    marginparwidth=60pt,
+    head=24pt,
+    textheight=690pt,
+    footskip=40pt,
+}
+
+
+\usepackage[automark]{scrlayer-scrpage}
+\usepackage{scrlayer-notecolumn}
+\setkomafont{notecolumn.marginpar}{\footnotesize}
+
+\pagestyle{scrheadings}
+\lehead{\thepage}
+\rohead{\thepage}
+\rehead{\MakeUppercase{\sffamily\textls\leftmark}}
+\lohead{\MakeUppercase{\sffamily\textls\rightmark}}
+\lofoot{}
+\refoot{}
+\lefoot{}
+\rofoot{}
+\chead{}
+\cfoot{}
